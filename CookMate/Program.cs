@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using CookMate.Models;
+using CookMate.shared;
+using CookMate.Controllers;
 
-namespace CookMate
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+namespace CookMate {
+
+    public class Program {
+
+        public static void Main(string[] args) {
             CreateWebHostBuilder(args).Build().Run();
         }
 
