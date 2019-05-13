@@ -61,9 +61,9 @@ namespace CookMate.Models {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Task>()
-                    .HasOne(t => t.user)
+                    .HasOne(t => t.User)
                     .WithMany(u => u.Tasks)
-                    .HasForeignKey(t => t.user_id)
+                    .HasForeignKey(t => t.User_id)
                     .HasConstraintName("ForeignKey_User_Task");
         }
 
