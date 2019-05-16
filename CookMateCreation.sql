@@ -7,91 +7,91 @@ go
 use [CookMate]
 
 CREATE TABLE [CookMate]..[Utilizador] (
-  idUtilizador INT NOT NULL,
-  nomeUtilizador VARCHAR(100) NOT NULL,
-  emailUtilizador VARCHAR(100) NOT NULL,
-  usernameUtilizador VARCHAR(50) NOT NULL,
-  passwordUtilizador VARCHAR(50) NOT NULL,
-  descricaoUtilizador VARCHAR(300) NULL,
-  imagemUtilizador VARCHAR(250) NULL,
-  dataNascimentoUtilizador DATE NOT NULL,
-  adicionaReceitasUtilizador TINYINT NOT NULL,
-  PRIMARY KEY (idUtilizador))
+  id INT NOT NULL,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  descricao VARCHAR(300) NULL,
+  imagem VARCHAR(250) NULL,
+  dataNascimento DATE NOT NULL,
+  adicionaReceitas TINYINT NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Categoria] (
-  idCategoria INT NOT NULL,
-  nomeCategoria VARCHAR(50) NOT NULL,
-  PRIMARY KEY (idCategoria))
+  id INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Receita] (
-  idReceita INT NOT NULL,
-  tituloReceita VARCHAR(150) NOT NULL,
-  tempoReceita TIME NOT NULL,
+  id INT NOT NULL,
+  titulo VARCHAR(150) NOT NULL,
+  tempo TIME NOT NULL,
   idCategoria INT NOT NULL,
-  PRIMARY KEY (idReceita),
+  PRIMARY KEY (id),
   INDEX idCategoria_idx (idCategoria ASC),
   CONSTRAINT idCategoria1
     FOREIGN KEY (idCategoria)
-    REFERENCES [CookMate]..[Categoria] (idCategoria))
+    REFERENCES [CookMate]..[Categoria] (id))
 
 
 CREATE TABLE [CookMate]..[Ingrediente] (
-  idIngrediente INT NOT NULL,
-  nomeIngrediente VARCHAR(50) NOT NULL,
-  valorIngrediente INT NULL,
-  unidadeIngrediente VARCHAR(25) NULL,
-  PRIMARY KEY (idIngrediente))
+  id INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  valor INT NULL,
+  unidade VARCHAR(25) NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Operacao] (
-  idOperacao INT NOT NULL,
-  nomeOperacao VARCHAR(50) NOT NULL,
-  PRIMARY KEY (idOperacao))
+  id INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Passo] (
-  idPasso INT NOT NULL,
-  tempoPasso INT NOT NULL,
-  temporizadorPasso TINYINT NOT NULL,
+  id INT NOT NULL,
+  tempo INT NOT NULL,
+  temporizador TINYINT NOT NULL,
   idReceita INT NOT NULL,
-  ordemPasso INT NOT NULL,
+  ordem INT NOT NULL,
   idOperacao INT NOT NULL,
-  PRIMARY KEY (idPasso),
+  PRIMARY KEY (id),
   INDEX fk_Passo_Receita1_idx (idReceita ASC),
   INDEX fk_Passo_Operacao1_idx (idOperacao ASC),
   CONSTRAINT fk_Passo_Receita1
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita),
+    REFERENCES [CookMate]..[Receita] (id),
   CONSTRAINT fk_Passo_Operacao1
     FOREIGN KEY (idOperacao)
-    REFERENCES [CookMate]..[Operacao] (idOperacao))
+    REFERENCES [CookMate]..[Operacao] (id))
 
 
 CREATE TABLE [CookMate]..[Ciclo] (
-  idCiclo INT NOT NULL,
+  id INT NOT NULL,
   primeiroPasso INT NOT NULL,
   ultimoPasso INT NOT NULL,
   idReceita INT NOT NULL,
-  PRIMARY KEY (idCiclo),
+  PRIMARY KEY (id),
   INDEX fk_Ciclo_Passo1_idx (primeiroPasso ASC),
   INDEX fk_Ciclo_Passo2_idx (ultimoPasso ASC),
   INDEX fk_Ciclo_Receita1_idx (idReceita ASC),
   CONSTRAINT primeiroPasso
     FOREIGN KEY (primeiroPasso)
-    REFERENCES [CookMate]..[Passo] (idPasso),
+    REFERENCES [CookMate]..[Passo] (id),
   CONSTRAINT ultimoPasso
     FOREIGN KEY (ultimoPasso)
-    REFERENCES [CookMate]..[Passo] (idPasso),
+    REFERENCES [CookMate]..[Passo] (id),
   CONSTRAINT fk_Ciclo_Receita1
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita))
+    REFERENCES [CookMate]..[Receita] (id))
 
 
 CREATE TABLE [CookMate]..[Classificação] (
-  pontuacaoClassificacao INT NOT NULL,
-  comentarioClassificacao VARCHAR(300) NULL,
+  pontuacao INT NOT NULL,
+  comentario VARCHAR(300) NULL,
   idUtilizador INT UNIQUE,
   idReceita INT NOT NULL,
   INDEX idUtilizador_idx (idUtilizador ASC),
@@ -99,77 +99,77 @@ CREATE TABLE [CookMate]..[Classificação] (
   PRIMARY KEY (idReceita, idUtilizador),
   CONSTRAINT idUtilizador1
     FOREIGN KEY (idUtilizador)
-    REFERENCES [CookMate]..[Utilizador] (idUtilizador),
+    REFERENCES [CookMate]..[Utilizador] (id),
   CONSTRAINT idReceita1
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita))
+    REFERENCES [CookMate]..[Receita] (id))
 
 
 CREATE TABLE [CookMate]..[Avaliação] (
-  pontuacaoAvaliacao INT NOT NULL,
-  comentarioAvaliacao VARCHAR(300) NULL,
+  pontuacao INT NOT NULL,
+  comentario VARCHAR(300) NULL,
   idUtilizador INT UNIQUE DEFAULT 0,
   INDEX fk_Avaliação_1_idx (idUtilizador ASC),
   PRIMARY KEY (idUtilizador),
   CONSTRAINT idUtilizador2
     FOREIGN KEY (idUtilizador)
-    REFERENCES [CookMate]..[Utilizador] (idUtilizador))
+    REFERENCES [CookMate]..[Utilizador] (id))
 
 
 CREATE TABLE [CookMate]..[Termo] (
-  idTermo INT NOT NULL,
-  designacaoTermo VARCHAR(50) NOT NULL,
-  PRIMARY KEY (idTermo))
+  id INT NOT NULL,
+  designacao VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Video] (
-  idVideo INT NOT NULL,
-  ficheiroVideo VARCHAR(250) NOT NULL,
-  PRIMARY KEY (idVideo))
+  id INT NOT NULL,
+  ficheiro VARCHAR(250) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Imagem] (
-  idImagem INT NOT NULL,
-  ficheiroImagem VARCHAR(250) NOT NULL,
-  PRIMARY KEY (idImagem))
+  id INT NOT NULL,
+  ficheiro VARCHAR(250) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Descricao] (
-  idDescricao INT NOT NULL,
-  textoDescricao VARCHAR(500) NOT NULL,
-  PRIMARY KEY (idDescricao))
+  id INT NOT NULL,
+  texto VARCHAR(500) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Hiperligacao] (
-  idHiperligacao INT NOT NULL,
-  urlHiperligacao VARCHAR(250) NOT NULL,
-  PRIMARY KEY (idHiperligacao))
+  id INT NOT NULL,
+  url VARCHAR(250) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[Recurso] (
-  idRecurso INT NOT NULL,
-  tipoRecurso INT NOT NULL,
+  id INT NOT NULL,
+  tipo INT NOT NULL,
   idVideo INT NULL,
   idImagem INT NULL,
   idDescricao INT NULL,
   idHiperligacao INT NULL,
-  PRIMARY KEY (idRecurso),
+  PRIMARY KEY (id),
   INDEX fk_Recurso_Video1_idx (idVideo ASC),
   INDEX fk_Recurso_Imagem1_idx (idImagem ASC),
   INDEX fk_Recurso_Descricao1_idx (idDescricao ASC),
   INDEX fk_Recurso_Hiperligacao1_idx (idHiperligacao ASC),
   CONSTRAINT fk_Recurso_Video1
     FOREIGN KEY (idVideo)
-    REFERENCES [CookMate]..[Video] (idVideo),
+    REFERENCES [CookMate]..[Video] (id),
   CONSTRAINT fk_Recurso_Imagem1
     FOREIGN KEY (idImagem)
-    REFERENCES [CookMate]..[Imagem] (idImagem),
+    REFERENCES [CookMate]..[Imagem] (id),
   CONSTRAINT fk_Recurso_Descricao1
     FOREIGN KEY (idDescricao)
-    REFERENCES [CookMate]..[Descricao] (idDescricao),
+    REFERENCES [CookMate]..[Descricao] (id),
   CONSTRAINT fk_Recurso_Hiperligacao1
     FOREIGN KEY (idHiperligacao)
-    REFERENCES [CookMate]..[Hiperligacao] (idHiperligacao))
+    REFERENCES [CookMate]..[Hiperligacao] (id))
 
 
 CREATE TABLE [CookMate]..[PreferenciaCategoria] (
@@ -180,10 +180,10 @@ CREATE TABLE [CookMate]..[PreferenciaCategoria] (
   PRIMARY KEY (idUtilizador, idCategoria),
   CONSTRAINT idUtilizador3
     FOREIGN KEY (idUtilizador)
-    REFERENCES [CookMate]..[Utilizador] (idUtilizador),
+    REFERENCES [CookMate]..[Utilizador] (id),
   CONSTRAINT idCategoria2
     FOREIGN KEY (idCategoria)
-    REFERENCES [CookMate]..[Categoria] (idCategoria))
+    REFERENCES [CookMate]..[Categoria] (id))
 
 
 CREATE TABLE [CookMate]..[PreferenciaIngrediente] (
@@ -194,10 +194,10 @@ CREATE TABLE [CookMate]..[PreferenciaIngrediente] (
   PRIMARY KEY (idUtilizador, idIngrediente),
   CONSTRAINT idUtilizador4
     FOREIGN KEY (idUtilizador)
-    REFERENCES [CookMate]..[Utilizador] (idUtilizador),
+    REFERENCES [CookMate]..[Utilizador] (id),
   CONSTRAINT idIngrediente
     FOREIGN KEY (idIngrediente)
-    REFERENCES [CookMate]..[Ingrediente] (idIngrediente))
+    REFERENCES [CookMate]..[Ingrediente] (id))
 
 
 CREATE TABLE [CookMate]..[ReceitaFavorita] (
@@ -208,10 +208,10 @@ CREATE TABLE [CookMate]..[ReceitaFavorita] (
   PRIMARY KEY (idUtilizador, idReceita),
   CONSTRAINT idUtilizador5
     FOREIGN KEY (idUtilizador)
-    REFERENCES [CookMate]..[Utilizador] (idUtilizador),
+    REFERENCES [CookMate]..[Utilizador] (id),
   CONSTRAINT idReceita2
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita))
+    REFERENCES [CookMate]..[Receita] (id))
 
 
 CREATE TABLE [CookMate]..[RecursoTermo] (
@@ -223,10 +223,10 @@ CREATE TABLE [CookMate]..[RecursoTermo] (
   PRIMARY KEY (idRecurso, idTermo),
   CONSTRAINT fk_RecursoTermo_Recurso1
     FOREIGN KEY (idRecurso)
-    REFERENCES [CookMate]..[Recurso] (idRecurso),
+    REFERENCES [CookMate]..[Recurso] (id),
   CONSTRAINT fk_RecursoTermo_Termo1
     FOREIGN KEY (idTermo)
-    REFERENCES [CookMate]..[Termo] (idTermo))
+    REFERENCES [CookMate]..[Termo] (id))
 
 
 CREATE TABLE [CookMate]..[RecursoPasso] (
@@ -238,10 +238,10 @@ CREATE TABLE [CookMate]..[RecursoPasso] (
   PRIMARY KEY (idRecurso, idPasso),
   CONSTRAINT fk_RecursoTermo_Recurso10
     FOREIGN KEY (idRecurso)
-    REFERENCES [CookMate]..[Recurso] (idRecurso),
+    REFERENCES [CookMate]..[Recurso] (id),
   CONSTRAINT fk_RecursoPasso_Passo1
     FOREIGN KEY (idPasso)
-    REFERENCES [CookMate]..[Passo] (idPasso))
+    REFERENCES [CookMate]..[Passo] (id))
 
 
 CREATE TABLE [CookMate]..[IngredienteReceita] (
@@ -252,16 +252,16 @@ CREATE TABLE [CookMate]..[IngredienteReceita] (
   PRIMARY KEY (idIngrediente, idReceita),
   CONSTRAINT fk_IngredienteReceita_Ingrediente1
     FOREIGN KEY (idIngrediente)
-    REFERENCES [CookMate]..[Ingrediente] (idIngrediente),
+    REFERENCES [CookMate]..[Ingrediente] (id),
   CONSTRAINT fk_IngredienteReceita_Receita1
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita))
+    REFERENCES [CookMate]..[Receita] (id))
 
 
 CREATE TABLE [CookMate]..[Utensilio] (
-  idUtensilio INT NOT NULL,
-  nomeUtensilio VARCHAR(50) NOT NULL,
-  PRIMARY KEY (idUtensilio))
+  id INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id))
 
 
 CREATE TABLE [CookMate]..[UtensilioReceita] (
@@ -272,10 +272,10 @@ CREATE TABLE [CookMate]..[UtensilioReceita] (
   PRIMARY KEY (idUtensilio, idReceita),
   CONSTRAINT fk_IngredienteReceita_Receita10
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita),
+    REFERENCES [CookMate]..[Receita] (id),
   CONSTRAINT fk_UtensilioReceita_Utensilio1
     FOREIGN KEY (idUtensilio)
-    REFERENCES [CookMate]..[Utensilio] (idUtensilio))
+    REFERENCES [CookMate]..[Utensilio] (id))
 
 
 CREATE TABLE [CookMate]..[RecursoReceita] (
@@ -287,10 +287,10 @@ CREATE TABLE [CookMate]..[RecursoReceita] (
   PRIMARY KEY (idRecurso, idReceita),
   CONSTRAINT fk_RecursoTermo_Recurso11
     FOREIGN KEY (idRecurso)
-    REFERENCES [CookMate]..[Recurso] (idRecurso),
+    REFERENCES [CookMate]..[Recurso] (id),
   CONSTRAINT fk_RecursoReceita_Receita1
     FOREIGN KEY (idReceita)
-    REFERENCES [CookMate]..[Receita] (idReceita))
+    REFERENCES [CookMate]..[Receita] (id))
 
 
 CREATE TABLE [CookMate]..[IngredientePasso] (
@@ -301,8 +301,8 @@ CREATE TABLE [CookMate]..[IngredientePasso] (
   PRIMARY KEY (idIngrediente, idPasso),
   CONSTRAINT fk_Ingrediente_has_Passo_Ingrediente1
     FOREIGN KEY (idIngrediente)
-    REFERENCES [CookMate]..[Ingrediente] (idIngrediente),
+    REFERENCES [CookMate]..[Ingrediente] (id),
   CONSTRAINT fk_Ingrediente_has_Passo_Passo1
     FOREIGN KEY (idPasso)
-    REFERENCES [CookMate]..[Passo] (idPasso))
+    REFERENCES [CookMate]..[Passo] (id))
 go
