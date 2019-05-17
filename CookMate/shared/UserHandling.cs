@@ -12,19 +12,19 @@ namespace CookMate.shared {
 
     public class UserHandling {
 
-        private readonly UserContext _context;
+        private readonly UtilizadorContext _context;
 
-        public UserHandling(UserContext context) {
+        public UserHandling(UtilizadorContext context) {
             _context = context;
         }
 
         public Utilizador[] getUsers() {
-            return _context.user.ToArray();
+            return _context.Utilizador.ToArray();
         }
 
         public bool validateUser(Utilizador user) {
             user.password = MyHelpers.HashPassword(user.password);
-            var returnedUser = _context.user.Where(b => b.username == user.username && b.password == user.password).FirstOrDefault();
+            var returnedUser = _context.Utilizador.Where(b => b.username == user.username && b.password == user.password).FirstOrDefault();
 
             if (returnedUser == null) {
                 return false;
@@ -34,7 +34,7 @@ namespace CookMate.shared {
 
         public bool registerUser(Utilizador user) {
             user.password = MyHelpers.HashPassword(user.password);
-            _context.user.Add(user);
+            _context.Utilizador.Add(user);
             _context.SaveChanges();
             return true;
         }

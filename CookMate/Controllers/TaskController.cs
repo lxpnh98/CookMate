@@ -12,9 +12,9 @@ namespace CookMate.Controllers {
     [Route("api/[controller]")]
     public class TaskController : Controller {
 
-        private readonly UserContext _context;
+        private readonly UtilizadorContext _context;
 
-        public TaskController(UserContext context) {
+        public TaskController(UtilizadorContext context) {
             _context = context;
         }
 

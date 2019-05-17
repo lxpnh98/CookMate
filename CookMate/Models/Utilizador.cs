@@ -53,9 +53,9 @@ namespace CookMate.Models {
         }
     }
 
-    public class UserContext : DbContext {
+    public class UtilizadorContext : DbContext {
 
-        public UserContext(DbContextOptions<UserContext> options)
+        public UtilizadorContext(DbContextOptions<UtilizadorContext> options)
             : base(options) {
         }
 
@@ -67,7 +67,7 @@ namespace CookMate.Models {
                     .HasConstraintName("ForeignKey_User_Task");
         }
 
-        public DbSet<Utilizador> user {
+        public DbSet<Utilizador> Utilizador {
             get;
             set;
         }

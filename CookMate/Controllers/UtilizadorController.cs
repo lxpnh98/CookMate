@@ -13,9 +13,9 @@ namespace CookMate.Controllers {
     [ApiController]
     public class UtilizadorController : ControllerBase {
 
-        private readonly UserContext _context;
+        private readonly UtilizadorContext _context;
 
-        public UtilizadorController(UserContext context) {
+        public UtilizadorController(UtilizadorContext context) {
             _context = context;
         }
         
@@ -30,8 +30,9 @@ namespace CookMate.Controllers {
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id) {
-            return "value";
+        public ActionResult<Utilizador> Get(int id) {
+            var utilizador = _context.Utilizador.Single(a => a.id == id);
+            return utilizador;
         }
 
         // POST api/values

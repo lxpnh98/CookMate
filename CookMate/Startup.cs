@@ -31,11 +31,11 @@ namespace CookMate {
         public void ConfigureServices(IServiceCollection services) {
 
             /**SQL Server*/
-            var connection = @"Server=TIAGO;Database=CookMate;Trusted_Connection=True;ConnectRetryCount=0";
+            var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1";//ConnectRetryCount=0";
             var fuck = "fuck this shit";
             Console.WriteLine("args1: {0} args2: {1}", fuck, fuck);
 
-            services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UtilizadorContext>(options => options.UseSqlServer(connectString));
 
             services.Configure<CookiePolicyOptions>(options =>
             {

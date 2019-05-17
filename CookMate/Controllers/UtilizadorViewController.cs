@@ -17,7 +17,7 @@ namespace CookMate.Controllers {
 
         private UserHandling userHandling;
 
-        public UtilizadorViewController(UserContext context) {
+        public UtilizadorViewController(UtilizadorContext context) {
             userHandling = new UserHandling(context);
         }
 
