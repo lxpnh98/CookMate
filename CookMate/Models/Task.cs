@@ -46,4 +46,4 @@ namespace CookMate.Models {
             get;
         }
     }
-    }
+}
