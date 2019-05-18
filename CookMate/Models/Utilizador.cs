@@ -73,6 +73,26 @@ namespace CookMate.Models {
             set;
         }
 
+        public DbSet<Receita> Receita {
+            get;
+            set;
+        }
+
+        public DbSet<Categoria> Categoria {
+            get;
+            set;
+        }
+
+        public DbSet<Ingrediente> Ingrediente {
+            get;
+            set;
+        }
+
+        public DbSet<Operacao> Operacao {
+            get;
+            set;
+        }
+
         public DbSet<Models.Task> task {
             get;
             set;

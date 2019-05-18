@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +11,7 @@ using CookMate.shared;
 
 namespace CookMate.Models {
 
-    public class Receita {
+    public class Ingrediente {
 
         [Key]
         public int id { 
@@ -21,32 +20,23 @@ namespace CookMate.Models {
         }
 
         [Required]
-        [StringLength(150)]
-        public string titulo {
+        [StringLength(50)]
+        public string nome {
             set;
             get;
         }
 
         [Required]
-        [DataType(DataType.Time)]
-        public TimeSpan tempo {
+        public int valor {
             set;
             get;
         }
 
         [Required]
-        [ForeignKey("Categoria")]
-        public int idCategoria {
+        [StringLength(25)]
+        public string unidade {
             set;
             get;
         }
-
-        [NotMapped]
-        [JsonIgnore]
-        public Categoria categoria {
-            set;
-            get;
-        }
-
     }
 }

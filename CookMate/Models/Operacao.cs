@@ -11,7 +11,7 @@ using CookMate.shared;
 
 namespace CookMate.Models {
 
-    public class Categoria {
+    public class Operacao {
 
         [Key]
         public int id { 

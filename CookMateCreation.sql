@@ -89,7 +89,7 @@ CREATE TABLE [CookMate]..[Ciclo] (
     REFERENCES [CookMate]..[Receita] (id))
 
 
-CREATE TABLE [CookMate]..[Classificação] (
+CREATE TABLE [CookMate]..[Classificacao] (
   pontuacao INT NOT NULL,
   comentario VARCHAR(300) NULL,
   idUtilizador INT UNIQUE,
@@ -105,7 +105,7 @@ CREATE TABLE [CookMate]..[Classificação] (
     REFERENCES [CookMate]..[Receita] (id))
 
 
-CREATE TABLE [CookMate]..[Avaliação] (
+CREATE TABLE [CookMate]..[Avaliacao] (
   pontuacao INT NOT NULL,
   comentario VARCHAR(300) NULL,
   idUtilizador INT UNIQUE DEFAULT 0,

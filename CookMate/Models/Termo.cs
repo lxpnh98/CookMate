@@ -11,7 +11,7 @@ using CookMate.shared;
 
 namespace CookMate.Models {
 
-    public class Categoria {
+    public class Termo {
 
         [Key]
         public int id { 
@@ -21,7 +21,7 @@ namespace CookMate.Models {
 
         [Required]
         [StringLength(50)]
-        public string nome {
+        public string designacao {
             set;
             get;
         }

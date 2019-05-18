@@ -11,7 +11,7 @@ using CookMate.shared;
 
 namespace CookMate.Models {
 
-    public class Categoria {
+    public class Imagem {
 
         [Key]
         public int id { 
@@ -20,8 +20,8 @@ namespace CookMate.Models {
         }
 
         [Required]
-        [StringLength(50)]
-        public string nome {
+        [StringLength(250)]
+        public string ficheiro {
             set;
             get;
         }
