@@ -26,6 +26,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Video")]
         public int idVideo {
             set;
             get;
@@ -39,6 +40,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Imagem")]
         public int idImagem {
             set;
             get;
@@ -52,6 +54,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Descricao")]
         public int idDescricao {
             set;
             get;
@@ -65,6 +68,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Hiperligacao")]
         public int idHiperligacao {
             set;
             get;

@@ -27,6 +27,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Utilizador")]
         public int idUtilizador {
             set;
             get;
@@ -40,6 +41,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Receita")]
         public int idReceita {
             set;
             get;

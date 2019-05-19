@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,6 +33,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Receita")]
         public int idReceita {
             set;
             get;
@@ -45,6 +47,7 @@ namespace CookMate.Models {
         }
 
         [Required]
+        [ForeignKey("Operacao")]
         public int idOperacao {
             set;
             get;
