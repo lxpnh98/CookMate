@@ -43,10 +43,24 @@ namespace CookMate.Models {
 
         [NotMapped]
         [JsonIgnore]
-        public Categoria categoria {
+        public Categoria Categoria {
             set;
             get;
         }
 
+        public virtual ICollection<Passo> Passos {
+            get;
+            set;
+        }
+
+        public virtual ICollection<Ciclo> Ciclos {
+            get;
+            set;
+        }
+
+        public virtual ICollection<Classificacao> Classificacoes {
+            get;
+            set;
+        }
     }
 }

@@ -18,11 +18,30 @@ namespace CookMate.Models {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<Task>()
-                    .HasOne(t => t.User)
-                    .WithMany(u => u.Tasks)
-                    .HasForeignKey(t => t.User_id)
-                    .HasConstraintName("ForeignKey_User_Task");
+            // 1 Receita, * Passo
+            modelBuilder.Entity<Passo>()
+                    .HasOne(p => p.Receita)
+                    .WithMany(r => r.Passos)
+                    .HasForeignKey(p => p.idReceita)
+                    .HasConstraintName("fk_Passo_Receita1");
+            
+            // 1 Receita, * Ciclo
+            modelBuilder.Entity<Ciclo>()
+                    .HasOne(c => c.Receita)
+                    .WithMany(r => r.Ciclos)
+                    .HasForeignKey(c => c.idReceita)
+                    .HasConstraintName("fk_Ciclo_Receita1");
+            
+            // 1 Receita, * Classificacao
+            modelBuilder.Entity<Classificacao>()
+                    .HasOne(c => c.Receita)
+                    .WithMany(r => r.Classificacoes)
+                    .HasForeignKey(c => c.idReceita)
+                    .HasConstraintName("idReceita1");
+
+            // Classificacao composite key
+            modelBuilder.Entity<Classificacao>()
+                    .HasKey(c => new { c.idUtilizador, c.idReceita });
         }
 
         public DbSet<Utilizador>    Utilizador { get; set; }
@@ -57,6 +76,6 @@ namespace CookMate.Models {
 
         public DbSet<Utensilio>     Utensilio { get; set; }
 
-        public DbSet<Task> task { get; set; }
+        public DbSet<Task>     task { get; set; }
     }
 }

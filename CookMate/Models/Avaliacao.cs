@@ -26,7 +26,9 @@ namespace CookMate.Models {
             get;
         }
 
+        [Key]
         [Required]
+        [ForeignKey("Utilizador")]
         public int idUtilizador {
             set;
             get;

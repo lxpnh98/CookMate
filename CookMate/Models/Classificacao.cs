@@ -41,7 +41,6 @@ namespace CookMate.Models {
         }
 
         [Required]
-        [ForeignKey("Receita")]
         public int idReceita {
             set;
             get;
