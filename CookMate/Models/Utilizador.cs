@@ -53,49 +53,4 @@ namespace CookMate.Models {
             set;
         }
     }
-
-    public class UtilizadorContext : DbContext {
-
-        public UtilizadorContext(DbContextOptions<UtilizadorContext> options)
-            : base(options) {
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<Task>()
-                    .HasOne(t => t.User)
-                    .WithMany(u => u.Tasks)
-                    .HasForeignKey(t => t.User_id)
-                    .HasConstraintName("ForeignKey_User_Task");
-        }
-
-        public DbSet<Utilizador> Utilizador {
-            get;
-            set;
-        }
-
-        public DbSet<Receita> Receita {
-            get;
-            set;
-        }
-
-        public DbSet<Categoria> Categoria {
-            get;
-            set;
-        }
-
-        public DbSet<Ingrediente> Ingrediente {
-            get;
-            set;
-        }
-
-        public DbSet<Operacao> Operacao {
-            get;
-            set;
-        }
-
-        public DbSet<Models.Task> task {
-            get;
-            set;
-        }
-    }
 }
