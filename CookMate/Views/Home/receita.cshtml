@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Receita";
+}
+
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+    <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+</nav>
+
+<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"> <font size="10" color="#ffa500"><b> Menu </b></font></li>
+            <li> <a href="#">Receitas Favoritas</a> </li>
+            <li> <a href="#">Gestão de Inverntário</a> </li>
+            <li> <a href="#">Agenda de Refeições</a> </li>
+            <li> <a href="#">Perfil</a> </li>
+            <li> <a href="#">Definições</a> </li>
+            <li> <a href="#">Logout</a> </li>
+        </ul>
+    </div>
+
+    <div class="container-fluid">
+        <h1>Bolo de Bolacha</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <b>Ingredientes:</b> (para 8 pessoas)
+                <ul class="list-group">
+                    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    {
+                        <li class="list-item" style="margin-left: 2.5em;">@ViewData["Message"]</li> <!-- Substituir -->
+                    }
+                </ul>
+                <!--
+                <ul class="list-group">
+                    <li class="list-item" style="margin-left: 2.5em;">2 pacotes de bolacha Maria</li>
+                    <li class="list-item" style="margin-left: 2.5em;">250g de manteiga</li>
+                    <li class="list-item" style="margin-left: 2.5em;">200g de açúcar fino RAR</li>
+                    <li class="list-item" style="margin-left: 2.5em;">3 ovos</li>
+                    <li class="list-item" style="margin-left: 2.5em;">Café solúvel q.b. (sem açucar)</li>
+                    <li class="list-item" style="margin-left: 2.5em;">Bolacha ralada para decorar</li>
+                </ul>
+                -->
+                <b>Utensílios:</b>
+                <ul class="list-group">
+                    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    {
+                        <li class="list-item" style="margin-left: 2.5em;">@ViewData["Message"]</li> <!-- Substituir -->
+                    }
+                </ul>
+                <!--
+                <ul class="list-group">
+                    <li class="list-item" style="margin-left: 2.5em;">Forma com base solta de fundo liso com 20 cm de diametro</li>
+                    <li class="list-item" style="margin-left: 2.5em;">Colher para facilidar o processo de molhar as bolachas</li>
+                    <li class="list-item" style="margin-left: 2.5em;">Taça para bater a manteiga</li>
+                    <li class="list-item" style="margin-left: 2.5em;">Taça para o café</li>
+                    <li class="list-item" style="margin-left: 2.5em;">Batedeira elétrica</li>
+                </ul>
+                -->
+                <b>Preparação:</b>
+                <ul class="list-group">
+                    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    {
+                        <li class="list-item" style="margin-left: 2.5em;"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="@ViewData["Passo x"]">Passo X: Conteudo</a></li> <!-- Substituir -->
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <b>Informação Adicional:</b>
+                <ul class="list-group">
+                    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    {
+                        <li class="list-item" style="margin-left: 2.5em;">@ViewData["Message"]</li> <!-- Substituir -->
+                    }
+                </ul>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="~/js/menu.js"></script>
