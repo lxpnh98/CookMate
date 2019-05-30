@@ -42,6 +42,18 @@ namespace CookMate.Models {
             // Classificacao composite key
             modelBuilder.Entity<Classificacao>()
                     .HasKey(c => new { c.idUtilizador, c.idReceita });
+
+            // * Receita, * Ingrediente
+            modelBuilder.Entity<IngredienteReceita>()
+                    .HasKey(i => new { i.idIngrediente, i.idReceita });
+            modelBuilder.Entity<IngredienteReceita>()
+                    .HasOne<Receita>(ir => ir.Receita)
+                    .WithMany(r => r.IngredienteReceitas)
+                    .HasForeignKey(ir => ir.idReceita);
+            modelBuilder.Entity<IngredienteReceita>()
+                    .HasOne<Ingrediente>(ir => ir.Ingrediente)
+                    .WithMany(i => i.IngredienteReceitas)
+                    .HasForeignKey(ir => ir.idIngrediente);
         }
 
         public DbSet<Utilizador>    Utilizador { get; set; }
