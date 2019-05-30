@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Receita";
+}
+
+<!--
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+-->
+
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+    <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+</nav>
+
+<div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"> <font size="10" color="#ffa500"><b> Menu </b></font></li>
+            <li> <a href="#">Receitas Favoritas</a> </li>
+            <li> <a href="#">Gestão de Inverntário</a> </li>
+            <li> <a href="#">Agenda de Refeições</a> </li>
+            <li> <a href="#">Perfil</a> </li>
+            <li> <a href="#">Definições</a> </li>
+            <li> <a href="#">Logout</a> </li>
+        </ul>
+    </div>
+
+    <div class="container-fluid">
+        <h1>Bolo de Bolacha</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <b>Passo X: </b>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+
+                <button type="button" name="button" class="anterior" style="float: right">Anterior</button>
+                <button type="button" name="button" class="repetir" style="float: right">Repetir</button>
+                <button type="button" name="button" class="proximo" style="float: right">Próximo</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="~/js/menu.js"></script>
