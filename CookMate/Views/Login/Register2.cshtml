@@ -2,6 +2,10 @@
     ViewData["Title"] = "Register 2";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/register2.css">
+</head>
+
 <div class="row">
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
@@ -16,19 +20,19 @@
                                 <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Categoria(s):</b></h1>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="tartes">
+                                        <input asp-for="tartes" type="checkbox" class="custom-control-input" id="tartes">
                                         <label class="custom-control-label" for="tartes">Tartes</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="gelados">
+                                        <input asp-for="gelados" type="checkbox" class="custom-control-input" id="gelados">
                                         <label class="custom-control-label" for="gelados">Gelados</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="bolos">
+                                        <input asp-for="bolos" type="checkbox" class="custom-control-input" id="bolos">
                                         <label class="custom-control-label" for="bolos">Bolos</label>
                                     </div>
                                 </div>
@@ -41,19 +45,19 @@
                                 <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="tartes">
+                                        <input asp-for="tartes" type="checkbox" class="custom-control-input" id="tartes">
                                         <label class="custom-control-label" for="tartes">Bolachas</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="gelados">
+                                        <input asp-for="gelados" type="checkbox" class="custom-control-input" id="gelados">
                                         <label class="custom-control-label" for="gelados">Frutos Vermelhos</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="bolos">
+                                        <input asp-for="bolos" type="checkbox" class="custom-control-input" id="bolos">
                                         <label class="custom-control-label" for="bolos">Caramelo</label>
                                     </div>
                                 </div>
@@ -61,8 +65,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center mt-3 login_container">
-                    <button type="button" name="button" class="btn login_btn">Next</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" name="button" class="next2_btn">Next</button>
                 </div>
             </div>
         </div>
