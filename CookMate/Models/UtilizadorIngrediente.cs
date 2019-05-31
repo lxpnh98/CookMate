@@ -12,17 +12,17 @@ using CookMate.shared;
 
 namespace CookMate.Models {
 
-    public class IngredienteReceita {
+    public class UtilizadorIngrediente {
         [Required]
-        [ForeignKey("Receita")]
-        public int idReceita {
+        [ForeignKey("Utilizador")]
+        public int idUtilizador {
             set;
             get;
         }
 
         [NotMapped]
         [JsonIgnore]
-        public Receita Receita {
+        public Utilizador Utilizador {
             set;
             get;
         }
