@@ -40,7 +40,5 @@ namespace CookMate.Models {
             set;
             get;
         }
-
-
     }
 }

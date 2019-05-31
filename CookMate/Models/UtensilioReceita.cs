@@ -12,27 +12,9 @@ using CookMate.shared;
 
 namespace CookMate.Models {
 
-    public class Passo {
-
-        [Key]
-        public int id {
-            set;
-            get;
-        }
-
+    public class UtensilioReceita {
         [Required]
-        public int tempo {
-            set;
-            get;
-        }
-
-        [Required]
-        public bool temporizador {
-            set;
-            get;
-        }
-
-        [Required]
+        [ForeignKey("Receita")]
         public int idReceita {
             set;
             get;
@@ -46,22 +28,19 @@ namespace CookMate.Models {
         }
 
         [Required]
-        [ForeignKey("Operacao")]
-        public int idOperacao {
+        [ForeignKey("Utensilio")]
+        public int idUtensilio {
             set;
             get;
         }
 
         [NotMapped]
         [JsonIgnore]
-        public Operacao Operacao {
+        public Utensilio Utensilio {
             set;
             get;
         }
 
-        public virtual ICollection<IngredientePasso> IngredientePassos {
-            get;
-            set;
-        }
+
     }
 }

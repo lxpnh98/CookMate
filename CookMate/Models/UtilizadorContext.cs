@@ -45,7 +45,7 @@ namespace CookMate.Models {
 
             // * Receita, * Ingrediente
             modelBuilder.Entity<IngredienteReceita>()
-                    .HasKey(i => new { i.idIngrediente, i.idReceita });
+                    .HasKey(ir => new { ir.idIngrediente, ir.idReceita });
             modelBuilder.Entity<IngredienteReceita>()
                     .HasOne<Receita>(ir => ir.Receita)
                     .WithMany(r => r.IngredienteReceitas)
@@ -54,6 +54,30 @@ namespace CookMate.Models {
                     .HasOne<Ingrediente>(ir => ir.Ingrediente)
                     .WithMany(i => i.IngredienteReceitas)
                     .HasForeignKey(ir => ir.idIngrediente);
+
+            // * Receita, * Utensilio
+            modelBuilder.Entity<UtensilioReceita>()
+                    .HasKey(i => new { i.idUtensilio, i.idReceita });
+            modelBuilder.Entity<UtensilioReceita>()
+                    .HasOne<Receita>(ur => ur.Receita)
+                    .WithMany(r => r.UtensilioReceitas)
+                    .HasForeignKey(ur => ur.idReceita);
+            modelBuilder.Entity<UtensilioReceita>()
+                    .HasOne<Utensilio>(ur => ur.Utensilio)
+                    .WithMany(u => u.UtensilioReceitas)
+                    .HasForeignKey(ur => ur.idUtensilio);
+
+            // * Passo, * Ingrediente
+            modelBuilder.Entity<IngredientePasso>()
+                    .HasKey(ip => new { ip.idPasso, ip.idIngrediente });
+            modelBuilder.Entity<IngredientePasso>()
+                    .HasOne<Passo>(ip => ip.Passo)
+                    .WithMany(p => p.IngredientePassos)
+                    .HasForeignKey(ip => ip.idPasso);
+            modelBuilder.Entity<IngredientePasso>()
+                    .HasOne<Ingrediente>(ip => ip.Ingrediente)
+                    .WithMany(i => i.IngredientePassos)
+                    .HasForeignKey(ip => ip.idIngrediente);
         }
 
         public DbSet<Utilizador>    Utilizador { get; set; }

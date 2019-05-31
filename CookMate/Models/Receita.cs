@@ -67,5 +67,10 @@ namespace CookMate.Models {
             get;
             set;
         }
+
+        public virtual ICollection<UtensilioReceita> UtensilioReceitas {
+            get;
+            set;
+        }
     }
 }

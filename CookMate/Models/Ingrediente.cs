@@ -43,5 +43,10 @@ namespace CookMate.Models {
             get;
             set;
         }
+
+        public virtual ICollection<IngredientePasso> IngredientePassos {
+            get;
+            set;
+        }
     }
 }
