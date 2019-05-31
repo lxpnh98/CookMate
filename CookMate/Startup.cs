@@ -31,8 +31,8 @@ namespace CookMate {
         public void ConfigureServices(IServiceCollection services) {
 
             /**SQL Server*/
-            var connectString = @"Server=TIAGO;User=TIAGO\TIagoasfasf;Database=CookMate;Trusted_Connection=TRUE;";
-            //var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1;";//ConnectRetryCount=0";
+            //var connectString = @"Server=TIAGO;User=TIAGO\TIagoasfasf;Database=CookMate;Trusted_Connection=TRUE;";
+            var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1;";//ConnectRetryCount=0";
             //var connectString = @"Server=MIGUEL-WINDOWS1;User=MIGUEL-WINDOWS1\micka;Database=CookMate;Trusted_Connection=True;";//ConnectRetryCount=0";
             //var connectString = @"Server=DESKTOP-9NAOK81\LI;User=sa;Database=CookMate;Trusted_Connection=False;Password=D@rkPow3r";//ConnectRetryCount=0";
             var fuck = "fuck this shit";

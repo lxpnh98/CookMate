@@ -21,7 +21,7 @@ namespace CookMate.Controllers
         }
 
         public IActionResult Register() {
-            return View();
+            return View("~/Views/Register/Register.cshtml");
         }
 
         [HttpPost]
