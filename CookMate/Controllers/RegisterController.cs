@@ -5,38 +5,35 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CookMate.Models;
 
-namespace CookMate.Controllers
-{
-    public class RegisterController : Controller
-    {
+namespace CookMate.Controllers {
+
+    public class RegisterController : Controller {
+
         private readonly UtilizadorContext _context;
         private Utilizador user = null;
 
-        public RegisterController(UtilizadorContext context)
-        {
+        public RegisterController(UtilizadorContext context) {
             _context = context;
         }
 
         public IActionResult Login() {
             return View("~/Views/Login/Login.cshtml");
         }
-
+        
         public IActionResult Register() {
-            return View();
+            return View("~/Views/Register/Register.cshtml");
         }
-
+    
         [HttpPost]
         public IActionResult Register(RegisterModel model) {
-            user = new Utilizador
-                    {
+            user = new Utilizador {
                         nome = model.nome,
                         email = model.email,
                         username = model.username,
                         password = model.password,
                         podeAdicionarReceita = false
-                    };
-            Console.WriteLine(user);
-            return View();
+            };
+            return View("Register2");
         }
     }
 
