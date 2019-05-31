@@ -13,13 +13,20 @@ namespace CookMate.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult UserLogin(string username, string password)
+        [HttpPost]
+        public IActionResult UserLogin()
         {
-            if (username == "1") return NoContent();
             Console.WriteLine("Hello");
             Console.WriteLine(ModelState.ToString());
             return View();
         }
+    }
+
+    public class LoginModel {
+
+        public string username;
+        public string password;
+
+
     }
 }
