@@ -2,6 +2,10 @@
     ViewData["Title"] = "Register 3";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/register3.css">
+</head>
+
 <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
         <div class="user_card">
@@ -14,19 +18,19 @@
                 <form>
                     <h1 style="font-size:100%;font-family:verdana;">Insira Imagem de Perfil:</h1>
                     <div class="custom-file mb-2">
-                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                        <input asp-for="image" type="file" class="custom-file-input" id="image" lang="es">
+                        <label class="custom-file-label" for="image">Seleccionar Archivo</label>
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Descrição">
+                        <input asp-for="image" type="text" placeholder="Descrição">
                     </div>
                 </form>
             </div>
             <div class="d-flex justify-content-center mt-3 login_container">
-                <button type="button" name="button" class="btn login_btn">Register</button>
+                <button type="submit" name="button" class="register_btn">Register</button>
             </div>
         </div>
     </div>
