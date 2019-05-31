@@ -48,6 +48,13 @@ namespace CookMate.Models {
             set;
         }
 
+        [Required]
+        [Display(Name = "Pode adicionar receita")]
+        public bool podeAdicionarReceita {
+            get;
+            set;
+        }
+
         public virtual ICollection<Task> Tasks {
             get;
             set;
