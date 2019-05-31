@@ -10,9 +10,14 @@ using CookMate.shared;
 
 namespace CookMate.Controllers {
 
-    public class HomeController : Controller {
+    public class NotAuthenticatedController : Controller {
 
         public IActionResult Index() {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
             return View();
         }
 
