@@ -30,14 +30,10 @@ namespace CookMate {
 
         public void ConfigureServices(IServiceCollection services) {
 
-            /**SQL Server*/
-            //var connectString = @"Server=TIAGO;User=TIAGO\TIagoasfasf;Database=CookMate;Trusted_Connection=TRUE;";
-            var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1;";//ConnectRetryCount=0";
-            //var connectString = @"Server=MIGUEL-WINDOWS1;User=MIGUEL-WINDOWS1\micka;Database=CookMate;Trusted_Connection=True;";//ConnectRetryCount=0";
-            //var connectString = @"Server=DESKTOP-9NAOK81\LI;User=sa;Database=CookMate;Trusted_Connection=False;Password=D@rkPow3r";//ConnectRetryCount=0";
-            var fuck = "fuck this shit";
-            Console.WriteLine("args1: {0} args2: {1}", fuck, fuck);
-
+            var connectString = @"Server=TIAGO;User=TIAGO\TIagoasfasf;Database=CookMate;Trusted_Connection=TRUE;";
+            //var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1;";
+            //var connectString = @"Server=MIGUEL-WINDOWS1;User=MIGUEL-WINDOWS1\micka;Database=CookMate;Trusted_Connection=True;";
+            //var connectString = @"Server=DESKTOP-9NAOK81\LI;User=sa;Database=CookMate;Trusted_Connection=False;Password=D@rkPow3r";
             services.AddDbContext<UtilizadorContext>(options => options.UseSqlServer(connectString));
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -48,7 +44,6 @@ namespace CookMate {
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            Console.WriteLine("args1: {0} args2: {1}", fuck, fuck);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
