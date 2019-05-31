@@ -24,7 +24,7 @@ namespace CookMate.Models {
         public string nome {
             set;
             get;
-        }
+        }   
 
         [Required]
         [DataType(DataType.EmailAddress)]
