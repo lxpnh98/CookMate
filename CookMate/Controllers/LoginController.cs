@@ -16,30 +16,16 @@ namespace CookMate.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
+        public IActionResult Login() {
             return View();
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+        public IActionResult Register() {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(LoginModel model)
-        {
-
+        public IActionResult Login(LoginModel model) {
             var user = _context.Utilizador.Where(u => u.username == model.username).SingleOrDefault();
 
             if (user != null && user.password == model.password) {
@@ -60,6 +46,5 @@ namespace CookMate.Controllers
             get;
             set;
         }
-
     }
 }
