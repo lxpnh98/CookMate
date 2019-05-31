@@ -48,5 +48,10 @@ namespace CookMate.Models {
             get;
             set;
         }
+
+        public virtual ICollection<UtilizadorIngrediente> UtilizadorIngredientes {
+            get;
+            set;
+        }
     }
 }

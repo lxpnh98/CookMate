@@ -81,5 +81,9 @@ namespace CookMate.Models {
             get;
         }
 
+        public virtual ICollection<RecursoPasso> RecursoPassos {
+            get;
+            set;
+        }
     }
 }

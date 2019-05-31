@@ -78,6 +78,42 @@ namespace CookMate.Models {
                     .HasOne<Ingrediente>(ip => ip.Ingrediente)
                     .WithMany(i => i.IngredientePassos)
                     .HasForeignKey(ip => ip.idIngrediente);
+
+            // * Passo, * Recurso
+            modelBuilder.Entity<RecursoPasso>()
+                    .HasKey(rp => new { rp.idPasso, rp.idRecurso });
+            modelBuilder.Entity<RecursoPasso>()
+                    .HasOne<Passo>(rp => rp.Passo)
+                    .WithMany(p => p.RecursoPassos)
+                    .HasForeignKey(rp => rp.idPasso);
+            modelBuilder.Entity<RecursoPasso>()
+                    .HasOne<Recurso>(rp => rp.Recurso)
+                    .WithMany(i => i.RecursoPassos)
+                    .HasForeignKey(rp => rp.idRecurso);
+
+            // * Utilizador, * Categoria
+            modelBuilder.Entity<UtilizadorCategoria>()
+                    .HasKey(uc => new { uc.idUtilizador, uc.idCategoria });
+            modelBuilder.Entity<UtilizadorCategoria>()
+                    .HasOne<Utilizador>(uc => uc.Utilizador)
+                    .WithMany(p => p.UtilizadorCategorias)
+                    .HasForeignKey(uc => uc.idUtilizador);
+            modelBuilder.Entity<UtilizadorCategoria>()
+                    .HasOne<Categoria>(uc => uc.Categoria)
+                    .WithMany(i => i.UtilizadorCategorias)
+                    .HasForeignKey(uc => uc.idCategoria);
+
+            // * Utilizador, * Ingrediente
+            modelBuilder.Entity<UtilizadorIngrediente>()
+                    .HasKey(ui => new { ui.idUtilizador, ui.idIngrediente });
+            modelBuilder.Entity<UtilizadorIngrediente>()
+                    .HasOne<Utilizador>(ui => ui.Utilizador)
+                    .WithMany(p => p.UtilizadorIngredientes)
+                    .HasForeignKey(ui => ui.idUtilizador);
+            modelBuilder.Entity<UtilizadorIngrediente>()
+                    .HasOne<Ingrediente>(ui => ui.Ingrediente)
+                    .WithMany(i => i.UtilizadorIngredientes)
+                    .HasForeignKey(ui => ui.idIngrediente);
         }
 
         public DbSet<Utilizador>    Utilizador { get; set; }
