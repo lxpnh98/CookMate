@@ -22,17 +22,18 @@ namespace CookMate.Controllers {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Utilizador>> Get() {
-            return new Utilizador[] {
-                new Utilizador { id=1, username="lxpnh98", email="lxpnh98@gmail.com"},
-                new Utilizador { id=2, username="alice", email="alice@hotmail.com"}
-            };
+            return _context.Utilizador.ToArray();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Utilizador> Get(int id) {
-            var utilizador = _context.Utilizador.Single(a => a.id == id);
-            return utilizador;
+            var utilizador = _context.Utilizador.Find(id);
+            if (utilizador == null)
+            {
+                return NotFound();
+            }
+            return Ok(utilizador);
         }
 
         // POST api/values
@@ -45,9 +46,26 @@ namespace CookMate.Controllers {
         public void Put(int id, [FromBody] string value) {
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id) {
+
+        [HttpPost]
+        public IActionResult Add([FromBody] Utilizador utilizador)
+        {
+            _context.Utilizador.Add(utilizador);
+            _context.SaveChanges();
+            return new CreatedResult($"/api/utilizador/{utilizador.id}", utilizador);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete([FromQuery] int id)
+        {
+            var user = _context.Utilizador.Find(id);
+            if(user == null)
+            {
+                return NotFound();
+            }
+            _context.Utilizador.Remove(user);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }

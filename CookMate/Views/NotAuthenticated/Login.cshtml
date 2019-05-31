@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Login";
 }
+@model CookMate.Models.Utilizador
 
 <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
@@ -11,20 +12,20 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container">
-                <form asp-controller="LoginController" asp-action="Login" method="post">
+                <form asp-controller="Login" asp-action="UserLogin" method="post" asp-route-username="1" asp-route-password="2">
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <!--
-                        <input asp-for="nome">    
-                        -->
+                        
+                        <input asp-for="username" placeholder="Username">
+
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+                        <input asp-for="password" placeholder="Password">
                     </div>
                     <div class="d-flex justify-content-center mt-3">
                         <button type="submit" name="button" class="btn login_btn">Login</button>
@@ -34,7 +35,7 @@
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
                     Don't have an account?
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                    <a class="nav-link" asp-area="" asp-controller="NotAuthenticated" asp-action="Register">Register</a>
                 </div>
             </div>
         </div>

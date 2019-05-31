@@ -13,10 +13,13 @@ namespace CookMate.Controllers
             return View();
         }
 
-        [ValidateAntiForgeryToken]
-        public IActionResult Login(string username, string password)
+        [HttpGet]
+        public IActionResult UserLogin(string username, string password)
         {
-            return View("Index");
+            if (username == "1") return NoContent();
+            Console.WriteLine("Hello");
+            Console.WriteLine(ModelState.ToString());
+            return View();
         }
     }
 }
