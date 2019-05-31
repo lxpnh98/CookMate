@@ -22,39 +22,39 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input asp-for="email" type="text" name="" class="form-control input_email" value="" placeholder="E-mail">
+                        <input asp-for="email" type="text" placeholder="E-mail">
                     </div>
                     <div class="input-group mb-1">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input asp-for="username" type="text" name="" class="form-control input_user" value="" placeholder="Username">
+                        <input asp-for="username" type="text" placeholder="Username">
                     </div>
                     <div class="input-group mb-1">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input asp-for="nome" type="text" name="" class="form-control input_name" value="" placeholder="Name">
+                        <input asp-for="nome" type="text" placeholder="Name">
                     </div>
                     <div class="input-group mb-1">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input asp-for="password" type="password" name="" class="form-control input_pass" value="" placeholder="Password">
+                        <input asp-for="password" type="password"  placeholder="Password">
                     </div>
                     <div class="input-group mb-1">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
                         </div>
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Repeat Password">
+                        <input asp-for="sndPassword" type="password" placeholder="Repeat Password">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"></span>
                         </div>
-                        <input type="text" class="form-control" pattern="[0-9]{2}" placeholder="Day">
-                        <input type="text" class="form-control" pattern="[0-9]{2}" placeholder="Month">
-                        <input type="text" class="form-control" pattern="[0-9]{4}" placeholder="Year">
+                        <input asp-for="dia"   pattern="[0-9]{2}" placeholder="Day">
+                        <input asp-for="mes" pattern="[0-9]{2}" placeholder="Month">
+                        <input asp-for="ano"  pattern="[0-9]{4}" placeholder="Year">
                     </div>
                 </form>
             </div>

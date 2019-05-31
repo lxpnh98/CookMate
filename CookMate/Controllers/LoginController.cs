@@ -5,14 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CookMate.Models;
 
-namespace CookMate.Controllers
-{
-    public class LoginController : Controller
-    {
+namespace CookMate.Controllers {
+
+    public class LoginController : Controller {
+
         private readonly UtilizadorContext _context;
 
-        public LoginController(UtilizadorContext context)
-        {
+        public LoginController(UtilizadorContext context) {
             _context = context;
         }
 
@@ -37,14 +36,8 @@ namespace CookMate.Controllers
 
     public class LoginModel {
 
-        public string username {
-            get;
-            set;
-        }
+        public string username { get; set; }
 
-        public string password {
-            get;
-            set;
-        }
+        public string password { get; set; }
     }
 }
