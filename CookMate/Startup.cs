@@ -31,7 +31,8 @@ namespace CookMate {
         public void ConfigureServices(IServiceCollection services) {
 
             /**SQL Server*/
-            var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1";//ConnectRetryCount=0";
+            //var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1";//ConnectRetryCount=0";
+            var connectString = @"Server=localhost;User=MIGUEL-WINDOWS1\micka;Database=CookMate;Trusted_Connection=True";//ConnectRetryCount=0";
             var fuck = "fuck this shit";
             Console.WriteLine("args1: {0} args2: {1}", fuck, fuck);
 
@@ -65,7 +66,7 @@ namespace CookMate {
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=NotAuthenticated}/{action=Login}/{id?}");
             });
         }
     }
