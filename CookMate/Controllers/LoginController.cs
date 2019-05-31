@@ -31,6 +31,7 @@ namespace CookMate.Controllers
             if (user != null && user.password == model.password) {
                  return View("~/Views/Home/menu.cshtml");
             }
+            ModelState.AddModelError("WrongLoginData", "The username or password provided is incorrect.");
             return View();
         }
     }
