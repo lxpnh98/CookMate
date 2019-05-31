@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container">
-                <form asp-controller="Login" asp-action="UserLogin" method="post">
+                <form asp-controller="Login" asp-action="Login" method="post">
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
@@ -35,7 +35,7 @@
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
                     Don't have an account?
-                    <a class="nav-link" asp-area="" asp-controller="NotAuthenticated" asp-action="Register">Register</a>
+                    <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Register">Register</a>
                 </div>
             </div>
         </div>
