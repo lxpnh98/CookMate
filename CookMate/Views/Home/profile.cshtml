@@ -1,5 +1,6 @@
 ﻿@{
-    ViewData["Title"] = ((Utilizador)@ViewData["user"]).nome;
+    var user = (Utilizador)@ViewData["user"];
+    ViewData["Title"] = user.nome;
 }
 
 <head>
@@ -14,8 +15,8 @@
     <li> <a href="#">Gestão de Inverntário</a> </li>
     <li> <a href="#">Agenda de Refeições</a> </li>
     <li> <a href="#">Definições</a> </li>
-    <li> <a href="#">Logout </a> @ViewData["username"] </li>
-    <li style="float:right"><a class="active">Username</a></li>
+    <li> <a href="#">Logout </a></li>
+    <li style="float:right"><a class="active">@user.username</a></li>
 </ul>
 
 <div class="container">
@@ -27,11 +28,11 @@
                         <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4>Name</h4>
+                        <h4>@user.nome</h4>
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>email@example.com
+                            <i class="glyphicon glyphicon-envelope"></i>@user.email
                             <br />
-                            <i class="glyphicon glyphicon-user"></i>Username
+                            <i class="glyphicon glyphicon-user"></i>@user.username
                             <br />
                             <i class="glyphicon glyphicon-gift"></i>June 02, 1988
                         </p>
