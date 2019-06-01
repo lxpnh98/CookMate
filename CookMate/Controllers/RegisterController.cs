@@ -112,59 +112,31 @@ namespace CookMate.Controllers {
         }
 
         private List<String> categorias = new List<string>();
-        /*
-        [HttpPost]
-        public void RegisterCategorias(RegisterModel model) {
-            Console.WriteLine("\n\n\n ENTREI AQUI 1\n\n\n");
-            if (model.tartes != null) {
-                this.categorias.Add(model.tartes);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.tartes);
-            if (model.gelados != null) {
-                this.categorias.Add(model.gelados);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.gelados);
-            if (model.bolos != null) {
-                this.categorias.Add(model.bolos);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.bolos);
-        }
-        */
         private List<String> ingredientes = new List<string>();
 
         [HttpPost]
         public IActionResult RegisterIngredientes(RegisterModel model) {
+            
+            if (model.tartes != null && model.tartes == "true") {
+                this.categorias.Add("tartes");
+            }
+            if (model.gelados != null && model.gelados == "true") {
+                this.categorias.Add("gelados");
+            }
+            if (model.bolos != null && model.bolos == "true") {
+                this.categorias.Add("bolos");
+            }
+            
+            if (model.bolachas != null && model.bolachas == "true") {
+                this.ingredientes.Add("bolachas");
+            }
+            if (model.frutos != null && model.frutos == "true") {
+                this.ingredientes.Add("frutos");
+            }
+            if (model.caramelo != null && model.caramelo == "true") {
+                this.ingredientes.Add("caramelo");
+            }
 
-            Console.WriteLine("\n\n\n ENTREI AQUI 1\n\n\n");
-            if (model.tartes != null)
-            {
-                this.categorias.Add(model.tartes);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.tartes);
-            if (model.gelados != null)
-            {
-                this.categorias.Add(model.gelados);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.gelados);
-            if (model.bolos != null)
-            {
-                this.categorias.Add(model.bolos);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.bolos);
-
-            Console.WriteLine("\n\n\n ENTREI AQUI 2\n\n\n");
-            if (model.bolachas != null) {
-                this.ingredientes.Add(model.bolachas);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.bolachas);
-            if (model.frutos != null) {
-                this.ingredientes.Add(model.frutos);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.frutos);
-            if (model.caramelo != null) {
-                this.ingredientes.Add(model.caramelo);
-            }
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.caramelo);
             return View("Register3");
         }
     }

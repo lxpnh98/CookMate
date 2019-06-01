@@ -7,69 +7,67 @@
     <link rel="stylesheet" href="~/css/register2.css">
 </head>
 
-<div class="row">
-    <div class="container h-100">
-        <div class="d-flex justify-content-center h-100">
-            <div class="user_card">
-                <div class="d-flex justify-content-center">
-                    <div class="brand_logo_container">
-                        <img src="https://i.imgur.com/EfK7afs.png" class="brand_logo" alt="Logo">
-                    </div>
-                    <div class="column">
-                        <div class="d-flex justify-content-center form_container">
-                            <form asp-controller="Register" asp-action="RegisterIngredientes" method="post">
-                            <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Categoria(s):</b></h1>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input asp-for="tartes" type="checkbox" class="custom-control-input" id="tartes">
-                                    <label class="custom-control-label" for="tartes">Tartes</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input asp-for="gelados" type="checkbox" class="custom-control-input" id="gelados">
-                                    <label class="custom-control-label" for="gelados">Gelados</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input asp-for="bolos" type="checkbox" class="custom-control-input" id="bolos">
-                                    <label class="custom-control-label" for="bolos">Bolos</label>
-                                </div>
-                            </div>
-                            </form>
+<form asp-controller="Register" asp-action="RegisterIngredientes" method="post">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+                    <div class="d-flex justify-content-center">
+                        <div class="brand_logo_container">
+                            <img src="https://i.imgur.com/EfK7afs.png" class="brand_logo" alt="Logo">
                         </div>
-                    </div>
-                    <div class="column">
-                        <div class="d-flex justify-content-center form_container">
-                            <form asp-controller="Register" asp-action="RegisterIngredientes" method="post">
-                                <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
-                                <div class="form-group">
+                        <div class="col">
+                            <div class="form-group">
+                                <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Categoria(s):</b></h1>
+                                <div class="col">
+                                        <div class="custom-control custom-checkbox">
+                                            <input asp-for="tartes" type="checkbox" class="custom-control-input" id="tartes">
+                                            <label class="custom-control-label" for="tartes">Tartes</label>
+                                        </div>
+                                </div>
+                                <div class="col">
                                     <div class="custom-control custom-checkbox">
-                                        <input asp-for="bolachas" type="checkbox" class="custom-control-input" id="bolachas">
-                                        <label class="custom-control-label" for="bolachas">Bolachas</label>
+                                        <input asp-for="gelados" type="checkbox" class="custom-control-input" id="gelados">
+                                        <label class="custom-control-label" for="gelados">Gelados</label>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="col">
                                     <div class="custom-control custom-checkbox">
-                                        <input asp-for="frutos" type="checkbox" class="custom-control-input" id="frutos">
-                                        <label class="custom-control-label" for="frutos">Frutos Vermelhos</label>
+                                        <input asp-for="bolos" type="checkbox" class="custom-control-input" id="bolos">
+                                        <label class="custom-control-label" for="bolos">Bolos</label>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                            <div class="col">
                                 <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input asp-for="caramelo" type="checkbox" class="custom-control-input" id="caramelo">
-                                        <label class="custom-control-label" for="caramelo">Caramelo</label>
+                                    <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
+                                    <div class="col">
+                                        <div class="custom-control custom-checkbox">
+                                            <input asp-for="bolachas" type="checkbox" class="custom-control-input" id="bolachas">
+                                            <label class="custom-control-label" for="bolachas">Bolachas</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="custom-control custom-checkbox">
+                                            <input asp-for="frutos" type="checkbox" class="custom-control-input" id="frutos">
+                                            <label class="custom-control-label" for="frutos">Frutos Vermelhos</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="custom-control custom-checkbox">
+                                            <input asp-for="caramelo" type="checkbox" class="custom-control-input" id="caramelo">
+                                            <label class="custom-control-label" for="caramelo">Caramelo</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button type="submit" name="button" class="next2_btn">Next</button>
-                                </div>
-                            </form>
+                            </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <button type="submit" name="button" class="next2_btn">Next</button>
+                            </div>
                         </div>
                      </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+</form>

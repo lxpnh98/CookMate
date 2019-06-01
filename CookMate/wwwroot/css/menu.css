@@ -48,3 +48,39 @@ li {
 .active {
     background-color: #ffa500;
 }
+
+.anterior {
+    background-color: gray;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    margin: 5px;
+}
+
+.repetir {
+    background-color: gray;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    margin: 5px;
+}
+
+.proximo {
+    background-color: gray;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    margin: 5px;
+}
