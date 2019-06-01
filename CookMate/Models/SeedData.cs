@@ -27,7 +27,9 @@ namespace CookMate.Models
                         email = "miguel@gmail.com",
                         username = "mikl",
                         password = "password",
-                        podeAdicionarReceita = false
+                        podeAdicionarReceita = false,
+                        pathImage = "",
+                        descricao = ""
                     },
 
                     new Utilizador
@@ -36,7 +38,10 @@ namespace CookMate.Models
                         email = "joel@gmail.com",
                         username = "joel",
                         password = "password",
-                        podeAdicionarReceita = false
+                        podeAdicionarReceita = false,
+                        pathImage = "",
+                        descricao = ""
+
                     },
 
                     new Utilizador
@@ -45,7 +50,10 @@ namespace CookMate.Models
                         email = "tiago@gmail.com",
                         username = "tiago",
                         password = "password",
-                        podeAdicionarReceita = false
+                        podeAdicionarReceita = false,
+                        pathImage = "",
+                        descricao = ""
+
                     },
 
                     new Utilizador
@@ -54,7 +62,10 @@ namespace CookMate.Models
                         email = "alexandre@gmail.com",
                         username = "alex",
                         password = "password",
-                        podeAdicionarReceita = false
+                        podeAdicionarReceita = false,
+                        pathImage = "",
+                        descricao = ""
+
                     }
                 );
                 context.SaveChanges();
