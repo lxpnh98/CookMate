@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Register 2";
 }
+@model CookMate.Controllers.RegisterModel
 
 <head>
     <link rel="stylesheet" href="~/css/register2.css">
@@ -16,7 +17,7 @@
                     </div>
                     <div class="column">
                         <div class="d-flex justify-content-center form_container">
-                            <form  asp-controller="Register" asp-action="RegisterDois" method="post">
+                            <form asp-controller="Register" asp-action="RegisterCategorias" method="post">
                                 <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Categoria(s):</b></h1>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
@@ -41,7 +42,7 @@
                     </div>
                     <div class="column">
                         <div class="d-flex justify-content-center form_container">
-                            <form >
+                            <form asp-controller="Register" asp-action="RegisterIngredientes" method="post">
                                 <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
