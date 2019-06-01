@@ -16,7 +16,7 @@
                     </div>
                     <div class="column">
                         <div class="d-flex justify-content-center form_container">
-                            <form>
+                            <form  asp-controller="Register" asp-action="RegisterDois" method="post">
                                 <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Categoria(s):</b></h1>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="column">
                         <div class="d-flex justify-content-center form_container">
-                            <form>
+                            <form >
                                 <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
@@ -61,12 +61,12 @@
                                         <label class="custom-control-label" for="caramelo">Caramelo</label>
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" name="button" class="next2_btn">Next</button>
+                                </div>
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="submit" name="button" class="next2_btn">Next</button>
                 </div>
             </div>
         </div>

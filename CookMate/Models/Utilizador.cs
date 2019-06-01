@@ -14,7 +14,7 @@ namespace CookMate.Models {
     public class Utilizador {
 
         [Key]
-        public int id { 
+        public int id {
             set;
             get;
         }
@@ -24,7 +24,7 @@ namespace CookMate.Models {
         public string nome {
             set;
             get;
-        }   
+        }
 
         [Required]
         [DataType(DataType.EmailAddress)]
