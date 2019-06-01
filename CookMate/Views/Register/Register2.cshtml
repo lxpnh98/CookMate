@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/css/register2.css">
 </head>
 
-<form asp-controller="Register" asp-action="RegisterIngredientes" method="post">
+<form asp-controller="Register" asp-action="RegisterDois" method="post">
     <div class="row">
         <div class="container-fluid">
             <div class="d-flex justify-content-center h-100">
@@ -39,35 +39,35 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
-                                    <div class="col">
-                                        <div class="custom-control custom-checkbox">
-                                            <input asp-for="bolachas" type="checkbox" class="custom-control-input" id="bolachas">
-                                            <label class="custom-control-label" for="bolachas">Bolachas</label>
-                                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione Ingrediente(s):</b></h1>
+                                <div class="col">
+                                    <div class="custom-control custom-checkbox">
+                                       <input asp-for="bolachas" type="checkbox" class="custom-control-input" id="bolachas">
+                                       <label class="custom-control-label" for="bolachas">Bolachas</label>
                                     </div>
-                                    <div class="col">
-                                        <div class="custom-control custom-checkbox">
-                                            <input asp-for="frutos" type="checkbox" class="custom-control-input" id="frutos">
-                                            <label class="custom-control-label" for="frutos">Frutos Vermelhos</label>
-                                        </div>
+                                </div>
+                                <div class="col">
+                                    <div class="custom-control custom-checkbox">
+                                        <input asp-for="frutos" type="checkbox" class="custom-control-input" id="frutos">
+                                        <label class="custom-control-label" for="frutos">Frutos Vermelhos</label>
                                     </div>
-                                    <div class="col">
-                                        <div class="custom-control custom-checkbox">
-                                            <input asp-for="caramelo" type="checkbox" class="custom-control-input" id="caramelo">
-                                            <label class="custom-control-label" for="caramelo">Caramelo</label>
-                                        </div>
+                                </div>
+                                <div class="col">
+                                    <div class="custom-control custom-checkbox">
+                                        <input asp-for="caramelo" type="checkbox" class="custom-control-input" id="caramelo">
+                                        <label class="custom-control-label" for="caramelo">Caramelo</label>
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" name="button" class="next2_btn">Next</button>
-                            </div>
                         </div>
-                     </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" name="button" class="next2_btn">Next</button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
 </form>

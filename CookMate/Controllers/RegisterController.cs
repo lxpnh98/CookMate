@@ -14,19 +14,15 @@ namespace CookMate.Controllers {
         private readonly UtilizadorContext _context;
         private Utilizador user = null;
 
-        public RegisterController(UtilizadorContext context)
-        {
+        public RegisterController(UtilizadorContext context) {
             _context = context;
         }
 
-        public IActionResult Login()
-        {
+        public IActionResult Login() {
             return View("~/Views/Login/Login.cshtml");
         }
 
-        public IActionResult Register()
-        {
-            Console.WriteLine("\n\n\naquiiiiii\n\n\n\n");
+        public IActionResult Register() {
             return View("~/Views/Register/Register.cshtml");
         }
 
@@ -115,8 +111,8 @@ namespace CookMate.Controllers {
         private List<String> ingredientes = new List<string>();
 
         [HttpPost]
-        public IActionResult RegisterIngredientes(RegisterModel model) {
-            
+        public IActionResult RegisterDois(RegisterModel model) {
+
             if (model.tartes != null && model.tartes == "true") {
                 this.categorias.Add("tartes");
             }
@@ -126,7 +122,7 @@ namespace CookMate.Controllers {
             if (model.bolos != null && model.bolos == "true") {
                 this.categorias.Add("bolos");
             }
-            
+
             if (model.bolachas != null && model.bolachas == "true") {
                 this.ingredientes.Add("bolachas");
             }
