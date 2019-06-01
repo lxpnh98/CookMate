@@ -1,6 +1,6 @@
 body {
     direction: rtl;
-    text-align: right
+    text-align: left
 }
 
 dd {
@@ -864,8 +864,6 @@ dl.row > dd + dt {
     margin: 0.5rem 0;
 }
 
-
-
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
@@ -876,8 +874,6 @@ dl.row > dd + dt {
 .btn-toolbar {
     margin-right: -0.5rem;
 }
-
-
 
     .btn-toolbar > .btn,
     .btn-toolbar > .btn-group,
@@ -1320,4 +1316,15 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
  
   min-height: 100%;
   position: relative;
+}
+
+.glyphicon {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+small {
+    display: block;
+    line-height: 2;
+    color: #999;
 }
