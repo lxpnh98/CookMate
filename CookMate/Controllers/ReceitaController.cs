@@ -27,13 +27,14 @@ namespace CookMate.Controllers {
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Receita> Get(int id) {
+        public ActionResult Get(int id) {
             var receita = _context.Receita.Find(id);
             if (receita == null)
             {
-                return NotFound();
+                return NoContent();
             }
-            return Ok(receita);
+            ViewData["receita"] = receita;
+            return View("~/Home/receita.cshtml");
         }
 
         // POST api/values
