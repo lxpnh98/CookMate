@@ -54,7 +54,21 @@ namespace CookMate.Models {
             get;
             set;
         }
- 
+
+        [Required]
+        [Display(Name = "Caminho da imagem")]
+        public string pathImage {
+            get;
+            set;
+        }
+
+        [Required]
+        [Display(Name = "Descrição")]
+        public string descricao {   
+            get;
+            set;
+        }
+
         public virtual ICollection<UtilizadorCategoria> UtilizadorCategorias {
             get;
             set;

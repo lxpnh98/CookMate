@@ -70,7 +70,9 @@ namespace CookMate.Controllers {
                     email = model.email,
                     username = model.username,
                     password = model.password,
-                    podeAdicionarReceita = false
+                    podeAdicionarReceita = false//,
+                  //  pathImage = "",
+                   // descricao = ""
                 };
                 return View("Register2");
             }
@@ -135,6 +137,16 @@ namespace CookMate.Controllers {
 
             return View("Register3");
         }
+
+        [HttpPost]
+        public IActionResult RegisterTres(RegisterModel model) {
+
+            Console.WriteLine("\n\n\n\n\n\n");
+            this.user.pathImage = model.pathImage;
+            this.user.descricao = model.descricao;
+
+            return View("~/Views/Home/menu.cshtml");
+        }
     }
 
     public class RegisterModel {
@@ -166,5 +178,9 @@ namespace CookMate.Controllers {
         public string frutos { get; set; }
 
         public string caramelo { get; set; }
+
+        public string pathImage { get; set; }
+
+        public string descricao { get; set; }
     }
 }
