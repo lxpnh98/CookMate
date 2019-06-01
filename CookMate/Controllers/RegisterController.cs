@@ -143,7 +143,11 @@ namespace CookMate.Controllers {
 
             Console.WriteLine("\n\n\n\n\n\n");
             this.user.pathImage = model.pathImage;
+
+            Console.WriteLine("\n\n\n {0} \n\n\n", model.pathImage);
             this.user.descricao = model.descricao;
+
+            Console.WriteLine("\n\n\n {0} \n\n\n", model.descricao);
 
             return View("~/Views/Home/menu.cshtml");
         }
