@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using CookMate.Models;
 
 namespace CookMate.Controllers {
@@ -28,7 +29,11 @@ namespace CookMate.Controllers {
             var user = _context.Utilizador.Where(u => u.username == model.username).SingleOrDefault();
 
             if (user != null && user.password == model.password) {
-                 return View("~/Views/Home/menu.cshtml");
+                HttpContext.Session.SetInt32("id", user.id);
+                HttpContext.Session.SetString("username", user.username);
+                ViewData["id"] = HttpContext.Session.GetInt32("id");
+                ViewData["username"] = HttpContext.Session.GetString("username");
+                return View("~/Views/Home/menu.cshtml");
             }
             ModelState.AddModelError("WrongLoginData", "The username or password provided is incorrect.");
             return View();

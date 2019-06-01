@@ -30,8 +30,8 @@ namespace CookMate {
 
         public void ConfigureServices(IServiceCollection services) {
 
-            var connectString = @"Server=TIAGO;User=TIAGO\TIagoasfasf;Database=CookMate;Trusted_Connection=TRUE;";
-            //var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1;";
+            //var connectString = @"Server=TIAGO;User=TIAGO\TIagoasfasf;Database=CookMate;Trusted_Connection=TRUE;";
+            var connectString = @"Server=localhost;User=SA;Database=CookMate;Trusted_Connection=False;Password=Password#1;";
             //var connectString = @"Server=MIGUEL-WINDOWS1;User=MIGUEL-WINDOWS1\micka;Database=CookMate;Trusted_Connection=True;";
             //var connectString = @"Server=DESKTOP-9NAOK81\LI;User=sa;Database=CookMate;Trusted_Connection=False;Password=D@rkPow3r";
             services.AddDbContext<UtilizadorContext>(options => options.UseSqlServer(connectString));
@@ -43,7 +43,12 @@ namespace CookMate {
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
+            services.AddMemoryCache();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
@@ -59,12 +64,14 @@ namespace CookMate {
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Login}/{action=Login}/{id?}");
             });
+
         }
     }
 }
