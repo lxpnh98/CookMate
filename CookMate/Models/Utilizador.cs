@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using CookMate.Models;
 using CookMate.Controllers;
 using CookMate.shared;
@@ -56,8 +57,8 @@ namespace CookMate.Models {
         }
 
         [Required]
-        [Display(Name = "Caminho da imagem")]
-        public string pathImage {
+        [Display(Name = "Imagem de perfil")]
+        public string imagePath {
             get;
             set;
         }

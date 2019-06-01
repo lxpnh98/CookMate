@@ -28,7 +28,7 @@ namespace CookMate.Models
                         username = "mikl",
                         password = "password",
                         podeAdicionarReceita = false,
-                        pathImage = "",
+                        imagePath = "",
                         descricao = ""
                     },
 
@@ -39,7 +39,7 @@ namespace CookMate.Models
                         username = "joel",
                         password = "password",
                         podeAdicionarReceita = false,
-                        pathImage = "",
+                        imagePath = "",
                         descricao = ""
 
                     },
@@ -51,7 +51,7 @@ namespace CookMate.Models
                         username = "tiago",
                         password = "password",
                         podeAdicionarReceita = false,
-                        pathImage = "",
+                        imagePath = "",
                         descricao = ""
 
                     },
@@ -63,7 +63,7 @@ namespace CookMate.Models
                         username = "alex",
                         password = "password",
                         podeAdicionarReceita = false,
-                        pathImage = "",
+                        imagePath = "",
                         descricao = ""
 
                     }

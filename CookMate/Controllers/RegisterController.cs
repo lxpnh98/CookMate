@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using CookMate.Models;
 using System.Text.RegularExpressions;
 
@@ -12,7 +13,7 @@ namespace CookMate.Controllers {
     {
 
         private readonly UtilizadorContext _context;
-        private Utilizador user = null;
+        private Utilizador user = new Utilizador {};
 
         public RegisterController(UtilizadorContext context) {
             _context = context;
@@ -141,10 +142,15 @@ namespace CookMate.Controllers {
         [HttpPost]
         public IActionResult RegisterTres(RegisterModel model) {
 
+            
             Console.WriteLine("\n\n\n\n\n\n");
-            this.user.pathImage = model.pathImage;
+            if (model.image != null) {
+                this.user.imagePath = model.image.Name;
+            } else {
+                this.user.imagePath = "";
+            }
 
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.pathImage);
+            Console.WriteLine("\n\n\n {0} \n\n\n", model.image);
             this.user.descricao = model.descricao;
 
             Console.WriteLine("\n\n\n {0} \n\n\n", model.descricao);
@@ -183,7 +189,7 @@ namespace CookMate.Controllers {
 
         public string caramelo { get; set; }
 
-        public string pathImage { get; set; }
+        public IFormFile image { get; set; }
 
         public string descricao { get; set; }
     }
