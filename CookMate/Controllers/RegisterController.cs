@@ -13,7 +13,6 @@ namespace CookMate.Controllers {
     {
 
         private readonly UtilizadorContext _context;
-        private Utilizador user = new Utilizador {};
 
         public RegisterController(UtilizadorContext context) {
             _context = context;
@@ -28,7 +27,7 @@ namespace CookMate.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterModel model)
+        public async Task<IActionResult> Register(RegisterModel model)
         {
             var valid = true;
             if (model.password != model.sndPassword)
@@ -65,16 +64,18 @@ namespace CookMate.Controllers {
 
             if (valid)
             {
-                this.user = new Utilizador
+                user = new Utilizador
                 {
                     nome = model.nome,
                     email = model.email,
                     username = model.username,
                     password = model.password,
-                    podeAdicionarReceita = false//,
-                  //  pathImage = "",
-                   // descricao = ""
+                    podeAdicionarReceita = false,
+                    descricao = "",
+                    imagePath = ""
                 };
+                _context.Utilizador.Add(user);
+                await _context.SaveChangesAsync();
                 return View("Register2");
             }
             else
@@ -110,30 +111,30 @@ namespace CookMate.Controllers {
             return ageOf16 <= now;
         }
 
-        private List<String> categorias = new List<string>();
-        private List<String> ingredientes = new List<string>();
-
         [HttpPost]
         public IActionResult RegisterDois(RegisterModel model) {
 
+            var categorias = new List<string>();
+            var ingredientes = new List<string>();
+
             if (model.tartes != null && model.tartes == "true") {
-                this.categorias.Add("tartes");
+                categorias.Add("tartes");
             }
             if (model.gelados != null && model.gelados == "true") {
-                this.categorias.Add("gelados");
+                categorias.Add("gelados");
             }
             if (model.bolos != null && model.bolos == "true") {
-                this.categorias.Add("bolos");
+                categorias.Add("bolos");
             }
 
             if (model.bolachas != null && model.bolachas == "true") {
-                this.ingredientes.Add("bolachas");
+                ingredientes.Add("bolachas");
             }
             if (model.frutos != null && model.frutos == "true") {
-                this.ingredientes.Add("frutos");
+                ingredientes.Add("frutos");
             }
             if (model.caramelo != null && model.caramelo == "true") {
-                this.ingredientes.Add("caramelo");
+                ingredientes.Add("caramelo");
             }
 
             return View("Register3");
@@ -142,20 +143,15 @@ namespace CookMate.Controllers {
         [HttpPost]
         public IActionResult RegisterTres(RegisterModel model) {
 
-            
-            Console.WriteLine("\n\n\n\n\n\n");
+            string imagePath;
             if (model.image != null) {
-                this.user.imagePath = model.image.Name;
+                imagePath = model.image.Name;
             } else {
-                this.user.imagePath = "";
+                imagePath = "";
             }
+            var descricao = model.descricao;
 
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.image);
-            this.user.descricao = model.descricao;
-
-            Console.WriteLine("\n\n\n {0} \n\n\n", model.descricao);
-
-            return View("~/Views/Home/menu.cshtml");
+            return View("~/Views/Login/Login.cshtml");
         }
     }
 
