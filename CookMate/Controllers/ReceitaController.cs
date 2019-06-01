@@ -11,7 +11,7 @@ namespace CookMate.Controllers {
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ReceitaController : ControllerBase {
+    public class ReceitaController : Controller {
 
         private readonly UtilizadorContext _context;
 

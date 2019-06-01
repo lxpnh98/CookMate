@@ -6,12 +6,13 @@ using CookMate.Models;
 using CookMate.Controllers;
 using CookMate.shared;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace CookMate.Controllers {
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UtilizadorController : ControllerBase {
+    public class UtilizadorController : Controller {
 
         private readonly UtilizadorContext _context;
 
@@ -27,13 +28,14 @@ namespace CookMate.Controllers {
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Utilizador> Get(int id) {
+        public IActionResult Get(int id) {
             var utilizador = _context.Utilizador.Find(id);
             if (utilizador == null)
             {
-                return NotFound();
+                return NoContent();
             }
-            return Ok(utilizador);
+            ViewData["user"] = utilizador;
+            return View("~/Views/Home/profile.cshtml");
         }
 
         // POST api/values
