@@ -4,114 +4,98 @@
 
 <head>
     <link rel="stylesheet" href="~/css/menu.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
-<nav class="navbar navbar-expand navbar-dark bg-primary">
-    <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-</nav>
 
-<div id="wrapper" class="toggled">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand"> <font size="10" color="#ffa500"><b> Menu </b></font></li>
-            <li> <a href="#">Receitas Favoritas</a> </li>
-            <li> <a href="#">Gestão de Inverntário</a> </li>
-            <li> <a href="#">Agenda de Refeições</a> </li>
-            <li> <a href="/api/Utilizador/@ViewData["id"]">Perfil</a> </li>
-            <li> <a href="#">Definições</a> </li>
-            <li> <a href="#">Logout </a> @ViewData["username"] </li>
-        </ul>
-    </div>
+<ul>
+    <li> <a href="#">Receitas Favoritas</a> </li>
+    <li> <a href="#">Gestão de Inverntário</a> </li>
+    <li> <a href="#">Agenda de Refeições</a> </li>
+    <li> <a href="/api/Utilizador/@ViewData["id"]">Perfil</a> </li>
+    <li> <a href="#">Definições</a> </li>
+    <li> <a href="#">Logout </a> @ViewData["username"] </li>
+    <li style="float:right"><a class="active">Username</a></li>
+</ul>
 
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <h1>Sugestão de Receita</h1>
-            <div class="col-lg-9 content-right">
-
-                <div class="well well-sm">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="?What are you looking for">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                            </span>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1>Sugestão de Receita</h1>
+        <div class="col-lg-9 content-right">
+            <div class="well well-sm">
+                <form>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="?What are you looking for">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="row selected-classifieds">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
-                    </form>
-                </div>
-
-                <div class="hidden-xs hidden-sm">
-                    <div class="featured">
-                        <a href="#"><img src="http://via.placeholder.com/846x282" /></a>
-                        <a href="#"><img src="http://via.placeholder.com/846x282" /></a>
-                        <a href="#"><img src="http://via.placeholder.com/846x282" /></a>
                     </div>
                 </div>
-                <div class="row selected-classifieds">
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                        <div class="thumbnail">
-                            <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
-                            <div class="caption">
-                                <h5><a href="#">Receita</a></h5>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="#"><img src="http://placehold.it/800x600/e0e0e0" /></a>
+                        <div class="caption">
+                            <h5><a href="#">Receita</a></h5>
                         </div>
                     </div>
                 </div>
@@ -119,23 +103,3 @@
         </div>
     </div>
 </div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script>
-    $(function () {
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        $(window).resize(function (e) {
-            if ($(window).width() <= 768) {
-                $("#wrapper").removeClass("toggled");
-            } else {
-                $("#wrapper").addClass("toggled");
-            }
-        });
-    });
-
-</script>
