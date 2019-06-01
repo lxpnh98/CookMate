@@ -112,7 +112,7 @@ namespace CookMate.Controllers {
         }
 
         private List<String> categorias = new List<string>();
-
+        /*
         [HttpPost]
         public void RegisterCategorias(RegisterModel model) {
             Console.WriteLine("\n\n\n ENTREI AQUI 1\n\n\n");
@@ -129,11 +129,29 @@ namespace CookMate.Controllers {
             }
             Console.WriteLine("\n\n\n {0} \n\n\n", model.bolos);
         }
-
+        */
         private List<String> ingredientes = new List<string>();
 
         [HttpPost]
         public IActionResult RegisterIngredientes(RegisterModel model) {
+
+            Console.WriteLine("\n\n\n ENTREI AQUI 1\n\n\n");
+            if (model.tartes != null)
+            {
+                this.categorias.Add(model.tartes);
+            }
+            Console.WriteLine("\n\n\n {0} \n\n\n", model.tartes);
+            if (model.gelados != null)
+            {
+                this.categorias.Add(model.gelados);
+            }
+            Console.WriteLine("\n\n\n {0} \n\n\n", model.gelados);
+            if (model.bolos != null)
+            {
+                this.categorias.Add(model.bolos);
+            }
+            Console.WriteLine("\n\n\n {0} \n\n\n", model.bolos);
+
             Console.WriteLine("\n\n\n ENTREI AQUI 2\n\n\n");
             if (model.bolachas != null) {
                 this.ingredientes.Add(model.bolachas);
