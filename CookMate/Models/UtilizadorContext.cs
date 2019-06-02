@@ -153,6 +153,8 @@ namespace CookMate.Models {
 
         }
 
+        public Utilizador registerUser { get; set; }
+
         public DbSet<Utilizador>    Utilizador { get; set; }
 
         public DbSet<Receita>       Receita { get; set; }

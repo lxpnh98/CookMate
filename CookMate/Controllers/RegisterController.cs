@@ -11,7 +11,6 @@ namespace CookMate.Controllers {
 
     public class RegisterController : Controller
     {
-
         private readonly UtilizadorContext _context;
 
         public RegisterController(UtilizadorContext context) {
@@ -27,7 +26,7 @@ namespace CookMate.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public IActionResult Register(RegisterModel model)
         {
             var valid = true;
             if (model.password != model.sndPassword)
@@ -64,18 +63,11 @@ namespace CookMate.Controllers {
 
             if (valid)
             {
-                user = new Utilizador
-                {
-                    nome = model.nome,
-                    email = model.email,
-                    username = model.username,
-                    password = model.password,
-                    podeAdicionarReceita = false,
-                    descricao = "",
-                    imagePath = ""
-                };
-                _context.Utilizador.Add(user);
-                await _context.SaveChangesAsync();
+                HttpContext.Session.SetString("nome", model.nome);
+                HttpContext.Session.SetString("email", model.email);
+                HttpContext.Session.SetString("username", model.username);
+                HttpContext.Session.SetString("password", model.password);
+                HttpContext.Session.SetString("podeAdicionarReceita", "false");
                 return View("Register2");
             }
             else
@@ -141,16 +133,33 @@ namespace CookMate.Controllers {
         }
 
         [HttpPost]
-        public IActionResult RegisterTres(RegisterModel model) {
+        public async Task<IActionResult> RegisterTres(RegisterModel model) {
 
             string imagePath;
+            string descricao;
             if (model.image != null) {
                 imagePath = model.image.Name;
             } else {
                 imagePath = "";
             }
-            var descricao = model.descricao;
+            if (model.descricao != null) {
+                descricao = model.descricao;
+            } else {
+                descricao = "";
+            }
 
+            var user = new Utilizador
+            {
+                nome = HttpContext.Session.GetString("nome"),
+                email = HttpContext.Session.GetString("email"),
+                username = HttpContext.Session.GetString("username"),
+                password = HttpContext.Session.GetString("password"),
+                podeAdicionarReceita = (HttpContext.Session.GetString("podeAdicionarReceita") == "true" ? true : false),
+                descricao = descricao,
+                imagePath = imagePath
+            };
+            _context.Utilizador.Add(user);
+            await _context.SaveChangesAsync();
             return View("~/Views/Login/Login.cshtml");
         }
     }
