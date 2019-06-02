@@ -16,14 +16,10 @@ namespace CookMate.Controllers {
         }
 
         public IActionResult MenuUser() {
-
-            Console.WriteLine("\n\n\n {0} \n\n\n", ViewData["id"]);
             return View("~/Views/Home/menu.cshtml");
         }
 
         public IActionResult MenuAdmin() {
-
-            Console.WriteLine("\n\n\n {0} \n\n\n", ViewData["id"]);
             return View("~/Views/Home/menuAdmin.cshtml");
         }
     }

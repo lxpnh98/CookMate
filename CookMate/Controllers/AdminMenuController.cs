@@ -10,12 +10,6 @@ namespace CookMate.Controllers {
 
     public class AdminMenuController : Controller {
 
-        private readonly UtilizadorContext _context;
-
-        public AdminMenuController(UtilizadorContext context) {
-            _context = context;
-        }
-
         public IActionResult Logout() {
             return View("_Login");
         }
