@@ -9,12 +9,12 @@ namespace CookMate.Controllers {
 
     public class AdminChooseController : Controller {
 
-        public IActionResult Menu() {
-            return View("~/View/Home/menu.cshtml");
+        public IActionResult MenuUser() {
+            return View("~/Views/Home/menu.cshtml");
         }
 
-        public IActionResult Admin() {
-            return View();
+        public IActionResult MenuAdmin() {
+            return View("~/Views/Home/menuAdmin.cshtml");
         }
     }
 }
