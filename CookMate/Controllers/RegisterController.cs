@@ -110,23 +110,35 @@ namespace CookMate.Controllers {
             var ingredientes = new List<string>();
 
             if (model.tartes != null && model.tartes == "true") {
-                categorias.Add("tartes");
+                HttpContext.Session.SetString("tartes", "true");
+            } else {
+                HttpContext.Session.SetString("tartes", "false");
             }
             if (model.gelados != null && model.gelados == "true") {
-                categorias.Add("gelados");
+                HttpContext.Session.SetString("gelados", "true");
+            } else {
+                HttpContext.Session.SetString("gelados", "false");
             }
             if (model.bolos != null && model.bolos == "true") {
-                categorias.Add("bolos");
+                HttpContext.Session.SetString("bolos", "true");
+            } else {
+                HttpContext.Session.SetString("bolos", "false");
             }
 
             if (model.bolachas != null && model.bolachas == "true") {
-                ingredientes.Add("bolachas");
+                HttpContext.Session.SetString("bolachas", "true");
+            } else {
+                HttpContext.Session.SetString("bolachas", "false");
             }
             if (model.frutos != null && model.frutos == "true") {
-                ingredientes.Add("frutos");
+                HttpContext.Session.SetString("frutos", "true");
+            } else {
+                HttpContext.Session.SetString("frutos", "false");
             }
             if (model.caramelo != null && model.caramelo == "true") {
-                ingredientes.Add("caramelo");
+                HttpContext.Session.SetString("caramelo", "true");
+            } else {
+                HttpContext.Session.SetString("caramelo", "false");
             }
 
             return View("Register3");
@@ -148,6 +160,28 @@ namespace CookMate.Controllers {
                 descricao = "";
             }
 
+            var categorias = new List<string>();
+            var ingredientes = new List<string>();
+
+            if (HttpContext.Session.GetString("tartes") == "true") {
+                categorias.Add("tartes");
+            }
+            if (HttpContext.Session.GetString("gelados") == "true") {
+                categorias.Add("gelados");
+            }
+            if (HttpContext.Session.GetString("bolos") == "true") {
+                categorias.Add("bolos");
+            }
+            if (HttpContext.Session.GetString("bolachas") == "true") {
+                ingredientes.Add("bolachas");
+            }
+            if (HttpContext.Session.GetString("frutos") == "true") {
+                ingredientes.Add("frutos");
+            }
+            if (HttpContext.Session.GetString("caramelo") == "true") {
+                ingredientes.Add("caramelo");
+            }
+
             var user = new Utilizador
             {
                 nome = HttpContext.Session.GetString("nome"),
@@ -156,7 +190,7 @@ namespace CookMate.Controllers {
                 password = HttpContext.Session.GetString("password"),
                 podeAdicionarReceita = (HttpContext.Session.GetString("podeAdicionarReceita") == "true" ? true : false),
                 descricao = descricao,
-                imagePath = imagePath
+                imagePath = imagePath,
             };
             _context.Utilizador.Add(user);
             await _context.SaveChangesAsync();
