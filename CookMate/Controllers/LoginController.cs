@@ -28,15 +28,29 @@ namespace CookMate.Controllers {
         public IActionResult Login(LoginModel model) {
             var user = _context.Utilizador.Where(u => u.username == model.username).SingleOrDefault();
 
-            if (user != null && user.password == model.password) {
-                HttpContext.Session.SetInt32("id", user.id);
-                HttpContext.Session.SetString("username", user.username);
-                ViewData["id"] = HttpContext.Session.GetInt32("id");
-                ViewData["username"] = HttpContext.Session.GetString("username");
-                return View("~/Views/Home/menu.cshtml");
+            if(user != null && user.admin == true) {
+                if(user.password == model.password) {
+                    HttpContext.Session.SetInt32("id", user.id);
+                    HttpContext.Session.SetString("username", user.username);
+                    ViewData["id"] = HttpContext.Session.GetInt32("id");
+                    ViewData["username"] = HttpContext.Session.GetString("username");
+                    return View("~/Views/Admin/choose.cshtml");
+                } else {
+                    ModelState.AddModelError("WrongLoginData", "The username or password provided is incorrect.");
+                    return View();
+                }
+            } else {
+                if (user != null && user.password == model.password) {
+                    HttpContext.Session.SetInt32("id", user.id);
+                    HttpContext.Session.SetString("username", user.username);
+                    ViewData["id"] = HttpContext.Session.GetInt32("id");
+                    ViewData["username"] = HttpContext.Session.GetString("username");
+                    return View("~/Views/Home/menu.cshtml");
+                } else {
+                    ModelState.AddModelError("WrongLoginData", "The username or password provided is incorrect.");
+                    return View();
+                }
             }
-            ModelState.AddModelError("WrongLoginData", "The username or password provided is incorrect.");
-            return View();
         }
     }
 

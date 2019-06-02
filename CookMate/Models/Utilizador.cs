@@ -70,6 +70,13 @@ namespace CookMate.Models {
             set;
         }
 
+        [Required]
+        [Display(Name = "Admin")]
+        public bool admin {   
+            get;
+            set;
+        }
+
         public virtual ICollection<UtilizadorCategoria> UtilizadorCategorias {
             get;
             set;

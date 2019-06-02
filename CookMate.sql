@@ -8,3 +8,11 @@ INSERT INTO CookMate..Utilizador (nome, email, username,  password, podeAdiciona
           ('Ola 4' , 'abc5@email.com' , 'abc5' , 'abc5' , 0 );
 
 SELECT * FROM CookMate..Utilizador;
+
+
+Use Cookmate;
+
+INSERT INTO CookMate..Utilizador (nome, email, username,  password, podeAdicionarReceita, descricao, imagePath, admin)
+    VALUES('Ola 5'   , 'iamadmin@email.com' , 'admin1' , 'admin1' , 1, 'i am admin', , 1);
+
+SELECT * FROM CookMate..Utilizador;
