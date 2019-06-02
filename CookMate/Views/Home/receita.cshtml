@@ -19,7 +19,7 @@
     <li> <a href="#">Agenda de Refeições</a> </li>
     <li> <a href="/api/Utilizador/@ViewData["id"]">Perfil</a> </li>
     <li> <a href="#">Definições</a> </li>
-    <li> <a href="#">Logout </a></li>
+    <li> <a href="/Login">Logout </a></li>
     <li style="float:right"><a class="active">@ViewData["username"]</a></li>
 </ul>
 
@@ -29,37 +29,18 @@
             <div class="col-sm-6">
                 <b>Ingredientes:</b> (para 8 pessoas)
                 <ul class="list-group">
-                    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    @foreach (var i in (List<Ingrediente>)ViewData["ingredientes"])
                     {
-                        <li class="list-item" style="margin-left: 2.5em;">@ViewData["Message"]</li> <!-- Substituir -->
+                        <li class="list-item" style="margin-left: 2.5em;">@(i.nome) - @(i.valor) @(i.unidade)</li>
                     }
                 </ul>
-                <!--
-                <ul class="list-group">
-                    <li class="list-item" style="margin-left: 2.5em;">2 pacotes de bolacha Maria</li>
-                    <li class="list-item" style="margin-left: 2.5em;">250g de manteiga</li>
-                    <li class="list-item" style="margin-left: 2.5em;">200g de açúcar fino RAR</li>
-                    <li class="list-item" style="margin-left: 2.5em;">3 ovos</li>
-                    <li class="list-item" style="margin-left: 2.5em;">Café solúvel q.b. (sem açucar)</li>
-                    <li class="list-item" style="margin-left: 2.5em;">Bolacha ralada para decorar</li>
-                </ul>
-                -->
                 <b>Utensílios:</b>
                 <ul class="list-group">
-                    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    @foreach (var u in (List<Utensilio>)ViewData["utensilios"])
                     {
-                        <li class="list-item" style="margin-left: 2.5em;">@ViewData["Message"]</li> <!-- Substituir -->
+                        <li class="list-item" style="margin-left: 2.5em;">@(u.nome)</li>
                     }
                 </ul>
-                <!--
-                <ul class="list-group">
-                    <li class="list-item" style="margin-left: 2.5em;">Forma com base solta de fundo liso com 20 cm de diametro</li>
-                    <li class="list-item" style="margin-left: 2.5em;">Colher para facilidar o processo de molhar as bolachas</li>
-                    <li class="list-item" style="margin-left: 2.5em;">Taça para bater a manteiga</li>
-                    <li class="list-item" style="margin-left: 2.5em;">Taça para o café</li>
-                    <li class="list-item" style="margin-left: 2.5em;">Batedeira elétrica</li>
-                </ul>
-                -->
                 <b>Preparação:</b>
                 <ul class="list-group">
                     @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)

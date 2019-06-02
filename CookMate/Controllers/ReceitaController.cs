@@ -33,7 +33,25 @@ namespace CookMate.Controllers {
             {
                 return NoContent();
             }
+
+            var ingredientes = new List<Ingrediente>();
+            var irs = _context.Receita.Where(r => r.id == id).SelectMany(r => r.IngredienteReceitas);
+            foreach (var ir in irs) {
+                var i = _context.Ingrediente.Find(ir.idIngrediente);
+                ingredientes.Add(i);
+            }
+            
+            var utensilios = new List<Utensilio>();
+            var urs = _context.Receita.Where(r => r.id == id).SelectMany(r => r.UtensilioReceitas);
+            foreach (var ur in urs) {
+                var u = _context.Utensilio.Find(ur.idUtensilio);
+                utensilios.Add(u);
+            }
+
             ViewData["receita"] = receita;
+            ViewData["ingredientes"] = ingredientes;
+            ViewData["utensilios"] = utensilios;
+
             return View("~/Home/receita.cshtml");
         }
 
