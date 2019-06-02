@@ -1,15 +1,15 @@
-	body,
-	html {
-		margin: 75px;
-		padding: 0;
-		height: 100%;
-		background: #60a3bc !important;
-	}
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("https://i.imgur.com/BSIlbNm.png");
+}
 
 	.user_card {
 		height: 400px;
 		width: 350px;
-		margin-top: auto;
+		margin-top: 150px;
 		margin-bottom: auto;
 		background: #f39c12;
 		position: relative;
@@ -23,16 +23,16 @@
 		border-radius: 5px;
 	}
 
-	.brand_logo_container {
-		position: absolute;
-		height: 170px;
-		width: 170px;
-		top: -75px;
-		border-radius: 50%;
-		background: #60a3bc;
-		padding: 10px;
-		text-align: center;
-	}
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #fff2ab;
+    padding: 10px;
+    text-align: center;
+}
 
 	.brand_logo {
 		height: 150px;

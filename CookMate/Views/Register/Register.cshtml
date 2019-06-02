@@ -63,12 +63,22 @@
                     <div class="text-danger text-wrap">
                         @Html.ValidationMessage("NonMatchingPasswords")
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-1">
                         <div class="input-group-prepend">
                             <span class="input-group-text"></span>
                         </div>
                         <input asp-for="dia" pattern="[0-9]{2}" placeholder="Day">
+                    </div>
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"></span>
+                        </div>
                         <input asp-for="mes" pattern="[0-9]{2}" placeholder="Month">
+                    </div>
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"></span>
+                        </div>
                         <input asp-for="ano" pattern="[0-9]{4}" placeholder="Year">
                     </div>
                     <div class="text-danger text-wrap">
