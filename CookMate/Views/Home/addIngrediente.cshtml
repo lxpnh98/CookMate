@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Receita";
 }
+@model CookMate.Controllers.IngredienteModel
 
 <head>
     <link rel="stylesheet" href="~/css/addReceita.css">
@@ -20,19 +21,19 @@
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <!-- <input asp-for="ingrediente" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Ingredient"> -->
+                        <input asp-for="ingrediente" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Ingredient">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <!-- <input asp-for="quantidade" type="number" name="" class="form-control input_ingredientes" value="" placeholder="Quantity"> -->
+                        <input asp-for="quantidade" type="number" name="" class="form-control input_ingredientes" value="" placeholder="Quantity">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <!-- <input asp-for="unidade" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Unity"> -->
+                        <input asp-for="unidade" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Unity">
                     </div>
                 </form>
             </div>
