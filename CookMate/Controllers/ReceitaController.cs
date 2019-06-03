@@ -23,6 +23,9 @@ namespace CookMate.Controllers {
 
         [Route("~/Menu")]
         public IActionResult Menu() {
+            ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
             return View("~/Views/Menu/menu.cshtml");
         }
 
