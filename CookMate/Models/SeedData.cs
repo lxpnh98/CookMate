@@ -215,112 +215,110 @@ namespace CookMate.Models
 
                 // TODO: UtilizadorIngrediente
 
-                // TODO: Passo 
-
                 var passos = new List<Passo>
                 {
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 1,titulo = "Make coffee and set aside.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 2,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 2,titulo = "Separate the yolks from the egg whites and reserve the egg yolks.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 1,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 3,titulo = "In a bowl, beat the butter until the cream is white.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 1,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 4,titulo = "Add sugar slowly, while beating until completely dissolved.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 2,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 5,titulo = "Add one gem at a time, also while beating.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 1,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 6,titulo = "Continue to beat everything until the cream is homogeneous.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 2,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 7,titulo = "Make sure the coffee is cold and put the biscuits over the coffee, one at a time.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 1,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 8,titulo = "Place a wafer in the center of the shape and 6 wafers around it, sweep them with the cream.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 1,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 9,titulo = "Make another layer of cookies and sweep the cookies again.",
-                        tempo = 5,
-                        temporizador = true,
+                        tempo = 2,
+                        temporizador = false,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
                         ordem = 10,titulo = "Repeat the process until the wafers are gone.",
-                        tempo = 5,
+                        tempo = 10,
+                        temporizador = false,
+                        idOperacao = 0,
+                    },
+                    new Passo
+                    {
+                        idReceita = receitas[0].id,
+                        ordem = 11,titulo = "Decorate with grated wafer.",
+                        tempo = 1,
+                        temporizador = false,
+                        idOperacao = 0,
+                    },
+                    new Passo
+                    {
+                        idReceita = receitas[0].id,
+                        ordem = 12,titulo = "Take to the refrigerator for 2 hours.",
+                        tempo = 120,
                         temporizador = true,
                         idOperacao = 0,
                     },
                     new Passo
                     {
                         idReceita = receitas[0].id,
-                        ordem = 11,titulo = "Quando as bolachas acabarem decore com a bolacha ralada.",
-                        tempo = 5,
-                        temporizador = true,
-                        idOperacao = 0,
-                    },
-                    new Passo
-                    {
-                        idReceita = receitas[0].id,
-                        ordem = 12,titulo = "Leve ao frigorifico por 2 horas.",
-                        tempo = 5,
-                        temporizador = true,
-                        idOperacao = 0,
-                    },
-                    new Passo
-                    {
-                        idReceita = receitas[0].id,
-                        ordem = 13,titulo = "Depois de frio pode desenformar e está pronto a servir.",
-                        tempo = 5,
-                        temporizador = true,
+                        ordem = 13,titulo = "Unmold and serve.",
+                        tempo = 1,
+                        temporizador = false,
                         idOperacao = 0,
                     }
                 };
