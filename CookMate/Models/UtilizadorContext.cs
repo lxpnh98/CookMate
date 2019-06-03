@@ -118,14 +118,14 @@ namespace CookMate.Models {
             // * Utilizador, * Receita (favoritas)
             modelBuilder.Entity<UtilizadorReceita>()
                     .HasKey(ur => new { ur.idUtilizador, ur.idReceita });
-            modelBuilder.Entity<UtilizadorIngrediente>()
+            modelBuilder.Entity<UtilizadorReceita>()
                     .HasOne<Utilizador>(ur => ur.Utilizador)
-                    .WithMany(p => p.UtilizadorIngredientes)
+                    .WithMany(p => p.UtilizadorReceitas)
                     .HasForeignKey(ur => ur.idUtilizador);
-            modelBuilder.Entity<UtilizadorIngrediente>()
-                    .HasOne<Ingrediente>(ur => ur.Ingrediente)
-                    .WithMany(i => i.UtilizadorIngredientes)
-                    .HasForeignKey(ur => ur.idIngrediente);
+            modelBuilder.Entity<UtilizadorReceita>()
+                    .HasOne<Receita>(ur => ur.Receita)
+                    .WithMany(i => i.UtilizadorReceitas)
+                    .HasForeignKey(ur => ur.idReceita);
 
             // * Receita, * Recurso
             modelBuilder.Entity<RecursoReceita>()

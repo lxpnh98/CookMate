@@ -21,12 +21,12 @@
             <div class="col-lg-9 content-right">
                 <div class="row selected-classifieds">
                     @{
-                        var receitas = (Receita[])ViewData["receitas"];
+                        var receitas = (List<Receita>)ViewData["receitas"];
                         foreach (Receita r in receitas)
                         {
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                 <div class="thumbnail">
-                                    <a href="/api/Receita/@r.id"><img src="" /></a>
+                                    <a href="/api/Receita/@r.id"><img src="@r.imagem" /></a>
                                 </div>
                                 <div class="caption">
                                     <h5><a href="/api/Receita/@r.id">@r.titulo</a></h5>
