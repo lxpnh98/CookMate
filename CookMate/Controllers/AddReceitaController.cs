@@ -68,7 +68,6 @@ namespace CookMate.Controllers {
                 _context.Receita.Add(receita);
                 _context.SaveChanges();
                 int idReceita = receita.id;
-                Console.WriteLine("\n\n\n{0}\n\n\n",idReceita);
                 HttpContext.Session.SetInt32("idReceita", idReceita);
                 ViewData["idReceita"] = (int)HttpContext.Session.GetInt32("idReceita");
                 return View("~/Views/Home/intermedio.cshtml");
@@ -78,7 +77,7 @@ namespace CookMate.Controllers {
     }
 
     public class AddReceitaModel {
-    
+
         public string titulo { get; set; }
 
         public int dificuldade { get; set; }
