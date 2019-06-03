@@ -21,19 +21,19 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                        <img src="@user.imagePath" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4>@user.nome</h4>
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>@user.email
+                            E-mail: @user.email
                             <br />
-                            <i class="glyphicon glyphicon-user"></i>@user.username
+                            Username: @user.username
                             <br />
-                            <i class="glyphicon glyphicon-gift"></i>June 02, 1988
+                            Description: @user.descricao
                         </p>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary">Delete</button>
+                            <a class="nav-link" asp-area="" asp-controller="Profile" asp-action="Delete"><font color="orange"><b>Delete Account</b></font></a>
                         </div>
                     </div>
                 </div>
