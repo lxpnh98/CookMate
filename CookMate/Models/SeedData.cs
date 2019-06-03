@@ -252,14 +252,14 @@ namespace CookMate.Models
                 //Video
                 var videos = new List<Video>
                 {
-                    new Video { ficheiro = gitRepoAbsolutePath + "Recursos\\Video\\bolo_de_bolacha.mp4" }
+                    new Video { ficheiro = "https://www.youtube.com/embed/dQw4w9WgXcQ" }
                 };
                 context.Video.AddRange(videos);
 
                 //Imagem
                 var imagens = new List<Imagem>
                 {
-                    new Imagem { ficheiro = gitRepoAbsolutePath + "Recursos\\Imagem\\bolo_de_bolacha.jpg" }
+                    new Imagem { ficheiro = "https://i.kym-cdn.com/entries/icons/original/000/016/212/manning.png" }
                 };
                 context.Imagem.AddRange(imagens);
 
@@ -281,13 +281,19 @@ namespace CookMate.Models
                 // Recurso
                 var recursos = new List<Recurso>
                 {
-                    new Recurso {tipo = 0, idVideo = videos[0].id, idImagem = imagens[0].id, idDescricao = descricoes[0].id, idHiperligacao = hiperligacoes[0].id}
+                    new Recurso {tipo = 0, idVideo = videos[0].id},
+                    new Recurso {tipo = 1, idImagem = imagens[0].id},
+                    new Recurso {tipo = 2, idDescricao = descricoes[0].id},
+                    new Recurso {tipo = 3, idHiperligacao = hiperligacoes[0].id}
                 };
                 context.Recurso.AddRange(recursos);
 
                 // RecursoReceita
                 context.AddRange(
-                    new RecursoReceita { Receita = receitas[0], Recurso = recursos[0]}
+                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[0].id},
+                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[1].id},
+                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[2].id},
+                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[3].id}
                 );
 
                 // Avaliação
