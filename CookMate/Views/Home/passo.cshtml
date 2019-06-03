@@ -28,6 +28,7 @@
     var next = (Passo)ViewData["next"];
     var previous = (Passo)ViewData["previous"];
     var ingredientes = (List<Ingrediente>)ViewData["ingredientes"];
+    var recursos = (List<Recurso>)ViewData["recursos"];
 }
 
 <div class="container-fluid">
@@ -41,6 +42,23 @@
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
             </div>
+            @foreach (var r in recursos)
+            {
+                switch (r.tipo) {
+                    case 0:
+                        <iframe class="embed-responsive-item" src="@(r.Video.ficheiro)"></iframe>
+                        break;
+                    case 1:
+                        <img src="@(r.Imagem.ficheiro)"/>
+                        break;
+                    case 2:
+                        <li>@(r.Descricao.texto)</li>
+                        break;
+                    case 3:
+                        <a href=@(r.Hiperligacao.url)>@(r.Hiperligacao.url)</a>
+                        break;
+                }
+            }
         </div>
 
         <div class="col-sm-6">
