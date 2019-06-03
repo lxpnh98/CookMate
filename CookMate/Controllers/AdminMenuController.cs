@@ -10,8 +10,20 @@ namespace CookMate.Controllers {
 
     public class AdminMenuController : Controller {
 
-        public IActionResult Logout() {
-            return View("_Login");
+        public IActionResult AddAdmin() {
+            return View("~/Views/Admin/promoverUser.cshtml");
+        }
+
+        public IActionResult AddReceitas() {
+            return View("~/Views/Admin/autorizarUser.cshtml");
+        }
+
+        public IActionResult DeleteReceitas() {
+            return View("~/Views/Admin/eliminarReceita.cshtml");
+        }
+
+        public IActionResult AdminLogout() {
+            return View("~/Views/Shared/_Login.cshtml");
         }
 
     }

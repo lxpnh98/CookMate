@@ -20,7 +20,7 @@ namespace CookMate.Controllers {
         }
 
         public IActionResult MenuAdmin() {
-            return View("~/Views/Home/menuAdmin.cshtml");
+           return View("~/Views/Admin/menuAdmin.cshtml");
         }
     }
 }
