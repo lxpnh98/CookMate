@@ -16,6 +16,10 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
+        public IActionResult AddReceita() {
+            return View("~/Views/Home/addReceita.cshtml");
+        }
+
         public IActionResult ClassificarApp() {
             return View("~/Views/Home/classificarAplicacao.cshtml");
         }
