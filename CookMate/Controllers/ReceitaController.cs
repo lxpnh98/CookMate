@@ -38,13 +38,10 @@ namespace CookMate.Controllers {
         public IActionResult ReceitaFavorita([FromQuery] FavoritaModel model)
         {
             var id = (int)HttpContext.Session.GetInt32("id");
-            Console.Write("\n\n\n{0}\n\n\n", id);
             var urs = _context.Utilizador.Where(u => u.id == id).SelectMany(u => u.UtilizadorReceitas);
             var redundant = false;
             foreach (var ur in urs) {
-                Console.Write("\n\n\n{0} - {1}\n", ur.idReceita, model.recipe);
                 if (ur.idReceita == model.recipe) {
-                    Console.Write("gothere\n\n", ur.idReceita);
                     redundant = true;
                     break;
                 }
@@ -58,6 +55,7 @@ namespace CookMate.Controllers {
                 };
             if (redundant == false) {
                 _context.AddRange(l);
+                _context.SaveChanges();
             }
             
             ViewData["id"] = HttpContext.Session.GetInt32("id");
