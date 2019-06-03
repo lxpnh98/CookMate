@@ -16,15 +16,28 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
-        [HttpPost]
-        public IActionResult ClassicarApp(ClassAppModel model) {
+        public IActionResult Menu() {
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
+            return View("~/Views/Home/menu.cshtml");
+        }
 
-            if (model.classificao != null) {
-                var avaliacao = new Avaliacao {
-                    idUtilizador = HttpContext.Session.GetInt32("id");
-                    pontuacao = model.classificao;
-                    comentario = model.comentario;
+        [HttpPost]
+        public IActionResult ClassificarApp(ClassAppModel model) {
+
+            if (model.classificacao != 0) {
+                int? id = HttpContext.Session.GetInt32("id");
+                if (id == null)
+                {
+                    Console.WriteLine("\n\n\nERROR\n\n\n");
                 }
+                var avaliacao = new Avaliacao
+                {
+                    idUtilizador = (int)id,
+                    pontuacao = model.classificacao,
+                    comentario = model.comentario
+                };
                 _context.Avaliacao.Add(avaliacao);
                 _context.SaveChanges();
                 return View("~/Views/Home/menu.cshtml");
@@ -37,7 +50,7 @@ namespace CookMate.Controllers {
 
     public class ClassAppModel {
 
-        public int classficacao { get; set; }
+        public int classificacao { get; set; }
 
         public string comentario { get; set; }
     }

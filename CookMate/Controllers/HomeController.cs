@@ -16,7 +16,13 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
-        public IActionResult Logout() {
+        public IActionResult ClassificarApp() {
+            Console.WriteLine("\n\n\nPASSEI AQUI 1\n\n\n");
+            return View("~/Views/Home/classificarAplicacao.cshtml");
+        }
+        public IActionResult Logout()
+        {
+            Console.WriteLine("\n\n\nPASSEI AQUI 2\n\n\n");
             return View("_Login");
         }
 
