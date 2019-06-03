@@ -23,16 +23,24 @@ namespace CookMate.Controllers {
             return View("~/Views/Menu/menu.cshtml");
         }
 
-        public IActionResult Delete() {
+        public IActionResult Delete(DeleteModel model) {
             int id = (int)HttpContext.Session.GetInt32("id");
             var user = _context.Utilizador.Find(id);
-            if (user != null) {
+            if (user != null && user.password == model.password) {
                 _context.Utilizador.Remove(user);
                 _context.SaveChanges();
                 return View("~/Views/Login/Login.cshtml");
             } else {
+                ModelState.AddModelError("WrongLoginData", "The password provided is incorrect.");
+                ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+                ViewData["user"] = user;
                 return View("~/Views/Home/profile.cshtml");
             }   
         }
+    }
+
+    public class DeleteModel {
+
+        public string password { get; set; }
     }
 }

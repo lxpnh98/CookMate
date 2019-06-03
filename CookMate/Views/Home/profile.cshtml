@@ -2,6 +2,7 @@
     var user = (Utilizador)@ViewData["user"];
     ViewData["Title"] = user.nome;
 }
+@model CookMate.Controllers.DeleteModel
 
 <head>
     <link rel="stylesheet" href="~/css/menu.css">
@@ -32,9 +33,20 @@
                             <br />
                             Description: @user.descricao
                         </p>
-                        <div class="btn-group">
-                            <a class="nav-link" asp-area="" asp-controller="Profile" asp-action="Delete"><font color="orange"><b>Delete Account</b></font></a>
-                        </div>
+                        <form asp-controller="Profile" asp-action="Delete" method="post">
+                            <div class="input-group mb-2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class=""></i></span>
+                                </div>
+                                <input asp-for="password" type="password" placeholder="Password">
+                            </div>
+                            <div class="text-danger text-wrap">
+                                @Html.ValidationMessage("WrongLoginData")
+                            </div>
+                            <div class="btn-group">
+                                <a class="nav-link" asp-area="" asp-controller="Profile" asp-action="Delete"><font color="orange"><b>Delete Account</b></font></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
