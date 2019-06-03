@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Receita";
 }
-@model CookMate.Controllers.IngredienteModel
 
 <head>
     <link rel="stylesheet" href="~/css/addReceita.css">
@@ -21,29 +20,17 @@
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <input asp-for="ingrediente" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Ingredient">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text"></span>
-                        </div>
-                        <input asp-for="quantidade" type="number" name="" class="form-control input_ingredientes" value="" placeholder="Quantity">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text"></span>
-                        </div>
-                        <input asp-for="unidade" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Unity">
+                        <!--<input asp-for="recurso" type="text" name="" class="form-control input_ingredientes" value="" placeholder="resource">-->
                     </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn">Add</button>
+                        <button type="button" name="button" class="btn login_btn">Next</button>
                     </div>
                 </form>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn">Next Step</button>
+                        <button type="button" name="button" class="btn login_btn">Intermediate</button>
                     </div>
                 </div>
             </div>

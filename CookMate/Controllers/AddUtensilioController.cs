@@ -26,11 +26,8 @@ namespace CookMate.Controllers {
 
             int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
 
-            if (model.utensilio == null)
-            {
-                ViewData["id"] = HttpContext.Session.GetInt32("id");
-                ViewData["username"] = HttpContext.Session.GetString("username");
-                return View("~/Views/Home/intermedio.cshtml");
+            if (model.utensilio == null) {
+
             }
             var utensilio = _context.Utensilio.Where(u => u.nome == model.utensilio).FirstOrDefault();
 
@@ -51,12 +48,11 @@ namespace CookMate.Controllers {
             {
                 var r = _context.Receita.Find(ur.idReceita);
                 if (ur.idReceita != r.id) {
-                    Console.WriteLine("\n\n\nAQUI 1\n\n\n");
                     existe = true;
                     break;
                 }  
             }
-            Console.WriteLine("\n\n\nAQUI 2\n\n\n");
+            
             if (existe == false)
             {
                 var utensilioReceita = new UtensilioReceita
@@ -69,7 +65,6 @@ namespace CookMate.Controllers {
             }
 
             ViewData["id"] = HttpContext.Session.GetInt32("id");
-            ViewData["username"] = HttpContext.Session.GetString("username");
             return View("~/Views/Home/intermedio.cshtml");
         }       
     }
