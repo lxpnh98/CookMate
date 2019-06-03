@@ -32,7 +32,7 @@ namespace CookMate.Controllers {
                 valid = false;
                 ModelState.AddModelError("TituloInvalido", "Title must be non-empty.");
             }
-            if (model.dificuldade < 1 && model.dificuldade > 5) {
+            if (model.dificuldade < 1 || model.dificuldade > 5) {
                 valid = false;
                 ModelState.AddModelError("DificuldadeInvalida", "Difficulty must be between 1 and 5.");
             }
@@ -67,7 +67,10 @@ namespace CookMate.Controllers {
                 };
                 _context.Receita.Add(receita);
                 _context.SaveChanges();
-                return View("~/Views/Home/addPasso.cshtml");
+                int idReceita = receita.id;
+                HttpContext.Session.SetInt32("idReceita");
+                ViewData["idReceita"] = (int)HttpContext.Session.GetInt32("idReceita");
+                return View("~/Views/Home/intermedio.cshtml");
             }
             return View("~/Views/Home/addReceita.cshtml");
         }
