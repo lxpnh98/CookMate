@@ -16,8 +16,11 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
-        public IActionResult Receita() {
-            return View("~/Views/Home/receita.cshtml");
+        public IActionResult Menu() {
+            ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
+            return View("~/Views/Home/menu.cshtml");
         }
 
         [HttpPost]
@@ -44,7 +47,10 @@ namespace CookMate.Controllers {
                     _context.Classificao.Update(clas);
                     _context.SaveChanges();
                 }
-                return View("~/Views/Home/receita.cshtml");
+                ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+                ViewData["username"] = HttpContext.Session.GetString("username");
+                ViewData["receitas"] = _context.Receita.ToArray();
+                return View("~/Views/Home/menu.cshtml");
             } else {
                 ModelState.AddModelError("MissingClassification", "Classification must be between 1 and 5.");
                 return View("~/Views/Home/ClassificarReceita.cshtml");
