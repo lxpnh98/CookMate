@@ -12,6 +12,13 @@ using CookMate.shared;
 namespace CookMate.Models {
 
     public class Avaliacao {
+        
+        [Key]
+        [Required]
+        public int id {
+            set;
+            get;
+        }
 
         [Required]
         public int pontuacao {
@@ -26,7 +33,6 @@ namespace CookMate.Models {
             get;
         }
 
-        [Key]
         [Required]
         [ForeignKey("Utilizador")]
         public int idUtilizador {

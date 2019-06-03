@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Classificar Aplicacao";
 }
+@model CookMate.Controllers.ClassAppModel
 
 <head>
     <link rel="stylesheet" href="~/css/login.css">
@@ -16,24 +17,27 @@
             </div>
             <div class="d-flex justify-content-center form_container">
                 <div class="input-group mb-3">
-                    <form asp-controller="PromoverUser" asp-action="PromoverUser" method="post">
+                    <form asp-controller="ClassificarApp" asp-action="ClassificarApp" method="post">
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class=""></i></span>
                             </div>
-                            <!--   <input asp-for="classificacao" pattern="[1-5]{1}" placeholder="Classification"> -->
+                            <input asp-for="classificacao" pattern="[1-5]{1}" placeholder="Classification">
+                        </div>
+                        <div class="text-danger text-wrap">
+                            @Html.ValidationMessage("MissingClassification")
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class=""></i></span>
                             </div>
-                            <!-- <input asp-for="comentario" placeholder="Comment"> -->
+                            <input asp-for="comentario" placeholder="Comment">
                         </div>
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit" name="button" class="btn login_btn">Send</button>
                         </div>
                         <div class="d-flex justify-content-center mt-3">
-                            <a class="nav-link" asp-area="" asp-controller="Back" asp-action="Back"><b>Back</b></a>
+                            <a class="nav-link" asp-area="" asp-controller="ClassificarApp" asp-action="Menu"><b>Back</b></a>
                         </div>
                     </form>
                 </div>

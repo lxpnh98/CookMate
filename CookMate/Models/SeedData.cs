@@ -293,8 +293,8 @@ namespace CookMate.Models
                 // Avaliação
                 var avaliacoes = new List<Avaliacao>
                 {
-                    new Avaliacao{Utilizador = utilizadores[3], pontuacao = 5, comentario = "Muito bom, está de parabéns!"},
-                    new Avaliacao{Utilizador = utilizadores[0], pontuacao = 1, comentario = "Não cozinha por mim, só não dou menos pq não dá"}
+                    new Avaliacao{idUtilizador = utilizadores[3].id, pontuacao = 5, comentario = "Muito bom, está de parabéns!"},
+                    new Avaliacao{idUtilizador = utilizadores[0].id, pontuacao = 1, comentario = "Não cozinha por mim, só não dou menos pq não dá"}
                 };
                 context.AddRange(avaliacoes);
 
