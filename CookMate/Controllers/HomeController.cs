@@ -8,11 +8,11 @@ using CookMate.Models;
 
 namespace CookMate.Controllers {
 
-    public class MenuController : Controller {
+    public class HomeController : Controller {
 
         private readonly UtilizadorContext _context;
 
-        public MenuController(UtilizadorContext context) {
+        public HomeController(UtilizadorContext context) {
             _context = context;
         }
 

@@ -33,8 +33,8 @@ namespace CookMate.Controllers {
                     HttpContext.Session.SetInt32("id", user.id);
                     HttpContext.Session.SetString("username", user.username);
                     ViewData["id"] = HttpContext.Session.GetInt32("id");
-                    Console.WriteLine("\n\n\n {0} \n\n\n", ViewData["id"]);
                     ViewData["username"] = HttpContext.Session.GetString("username");
+                    ViewData["receitas"] = _context.Receita.ToArray();
                     return View("~/Views/Admin/choose.cshtml");
                 } else {
                     ModelState.AddModelError("WrongLoginData", "The username or password provided is incorrect.");

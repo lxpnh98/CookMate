@@ -52,7 +52,7 @@ namespace CookMate.Controllers {
             ViewData["ingredientes"] = ingredientes;
             ViewData["utensilios"] = utensilios;
 
-            return View("~/Home/receita.cshtml");
+            return View("~/Views/Home/receita.cshtml");
         }
 
         // POST api/values

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using CookMate.Models;
 
 namespace CookMate.Controllers {
@@ -16,6 +17,9 @@ namespace CookMate.Controllers {
         }
 
         public IActionResult MenuUser() {
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
             return View("~/Views/Home/menu.cshtml");
         }
 
