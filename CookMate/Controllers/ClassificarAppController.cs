@@ -26,25 +26,31 @@ namespace CookMate.Controllers {
         [HttpPost]
         public IActionResult ClassificarApp(ClassAppModel model) {
 
-            if (model.classificacao != 0) {
-                int? id = HttpContext.Session.GetInt32("id");
-                if (id == null) {
-                    Console.WriteLine("\n\n\nERROR\n\n\n");
+            if (model.classificacao >=1 && model.classificacao <= 5 ) {
+                int id = (int)HttpContext.Session.GetInt32("id");
+
+                var aval = _context.Avaliacao.Where(a => a.idUtilizador == id).SingleOrDefault();
+                if (aval == null) { 
+                    var avaliacao = new Avaliacao
+                    {
+                        idUtilizador = id,
+                        pontuacao = model.classificacao,
+                        comentario = model.comentario
+                    };
+                    _context.Avaliacao.Add(avaliacao);
+                    _context.SaveChanges();
+                } else {
+                    aval.pontuacao = model.classificacao;
+                    aval.comentario = model.comentario;
+                    _context.Avaliacao.Update(aval);
+                    _context.SaveChanges();
                 }
-                var avaliacao = new Avaliacao
-                {
-                    idUtilizador = (int)id,
-                    pontuacao = model.classificacao,
-                    comentario = model.comentario
-                };
-                _context.Avaliacao.Add(avaliacao);
-                _context.SaveChanges();
                 ViewData["id"] = HttpContext.Session.GetInt32("id");
                 ViewData["username"] = HttpContext.Session.GetString("username");
                 ViewData["receitas"] = _context.Receita.ToArray();
                 return View("~/Views/Home/menu.cshtml");
             } else {
-                ModelState.AddModelError("MissingClassification", "Classification field is empty.");
+                ModelState.AddModelError("MissingClassification", "Classification must be between 1 and 5.");
                 return View("~/Views/Home/classificarAplicacao.cshtml");
             }
         }
