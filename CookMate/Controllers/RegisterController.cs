@@ -11,7 +11,6 @@ namespace CookMate.Controllers {
 
     public class RegisterController : Controller
     {
-
         private readonly UtilizadorContext _context;
 
         public RegisterController(UtilizadorContext context) {
@@ -27,7 +26,7 @@ namespace CookMate.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public IActionResult Register(RegisterModel model)
         {
             var valid = true;
             if (model.password != model.sndPassword)
@@ -64,18 +63,11 @@ namespace CookMate.Controllers {
 
             if (valid)
             {
-                user = new Utilizador
-                {
-                    nome = model.nome,
-                    email = model.email,
-                    username = model.username,
-                    password = model.password,
-                    podeAdicionarReceita = false,
-                    descricao = "",
-                    imagePath = ""
-                };
-                _context.Utilizador.Add(user);
-                await _context.SaveChangesAsync();
+                HttpContext.Session.SetString("nome", model.nome);
+                HttpContext.Session.SetString("email", model.email);
+                HttpContext.Session.SetString("username", model.username);
+                HttpContext.Session.SetString("password", model.password);
+                HttpContext.Session.SetString("podeAdicionarReceita", "false");
                 return View("Register2");
             }
             else
@@ -118,39 +110,90 @@ namespace CookMate.Controllers {
             var ingredientes = new List<string>();
 
             if (model.tartes != null && model.tartes == "true") {
-                categorias.Add("tartes");
+                HttpContext.Session.SetString("tartes", "true");
+            } else {
+                HttpContext.Session.SetString("tartes", "false");
             }
             if (model.gelados != null && model.gelados == "true") {
-                categorias.Add("gelados");
+                HttpContext.Session.SetString("gelados", "true");
+            } else {
+                HttpContext.Session.SetString("gelados", "false");
             }
             if (model.bolos != null && model.bolos == "true") {
-                categorias.Add("bolos");
+                HttpContext.Session.SetString("bolos", "true");
+            } else {
+                HttpContext.Session.SetString("bolos", "false");
             }
 
             if (model.bolachas != null && model.bolachas == "true") {
-                ingredientes.Add("bolachas");
+                HttpContext.Session.SetString("bolachas", "true");
+            } else {
+                HttpContext.Session.SetString("bolachas", "false");
             }
             if (model.frutos != null && model.frutos == "true") {
-                ingredientes.Add("frutos");
+                HttpContext.Session.SetString("frutos", "true");
+            } else {
+                HttpContext.Session.SetString("frutos", "false");
             }
             if (model.caramelo != null && model.caramelo == "true") {
-                ingredientes.Add("caramelo");
+                HttpContext.Session.SetString("caramelo", "true");
+            } else {
+                HttpContext.Session.SetString("caramelo", "false");
             }
 
             return View("Register3");
         }
 
         [HttpPost]
-        public IActionResult RegisterTres(RegisterModel model) {
+        public async Task<IActionResult> RegisterTres(RegisterModel model) {
 
             string imagePath;
+            string descricao;
             if (model.image != null) {
                 imagePath = model.image.Name;
             } else {
                 imagePath = "";
             }
-            var descricao = model.descricao;
+            if (model.descricao != null) {
+                descricao = model.descricao;
+            } else {
+                descricao = "";
+            }
 
+            var categorias = new List<string>();
+            var ingredientes = new List<string>();
+
+            if (HttpContext.Session.GetString("tartes") == "true") {
+                categorias.Add("tartes");
+            }
+            if (HttpContext.Session.GetString("gelados") == "true") {
+                categorias.Add("gelados");
+            }
+            if (HttpContext.Session.GetString("bolos") == "true") {
+                categorias.Add("bolos");
+            }
+            if (HttpContext.Session.GetString("bolachas") == "true") {
+                ingredientes.Add("bolachas");
+            }
+            if (HttpContext.Session.GetString("frutos") == "true") {
+                ingredientes.Add("frutos");
+            }
+            if (HttpContext.Session.GetString("caramelo") == "true") {
+                ingredientes.Add("caramelo");
+            }
+
+            var user = new Utilizador
+            {
+                nome = HttpContext.Session.GetString("nome"),
+                email = HttpContext.Session.GetString("email"),
+                username = HttpContext.Session.GetString("username"),
+                password = HttpContext.Session.GetString("password"),
+                podeAdicionarReceita = (HttpContext.Session.GetString("podeAdicionarReceita") == "true" ? true : false),
+                descricao = descricao,
+                imagePath = imagePath,
+            };
+            _context.Utilizador.Add(user);
+            await _context.SaveChangesAsync();
             return View("~/Views/Login/Login.cshtml");
         }
     }

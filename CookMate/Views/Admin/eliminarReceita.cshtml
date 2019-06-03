@@ -1,7 +1,7 @@
 ﻿@{
-    ViewData["Title"] = "Menu 2";
+    ViewData["Title"] = "Remover";
 }
-
+ 
 <head>
     <link rel="stylesheet" href="~/css/login.css">
 </head>
@@ -14,17 +14,19 @@
                     <img src="https://i.imgur.com/EfK7afs.png" class="brand_logo" alt="Logo">
                 </div>
             </div>
-            <h1 style="font-size:150%;font-family:verdana;text-align:center;"><b>Selecione o modo de utilização:</b></h1>
             <form>
+                <div class="d-flex justify-content-center form_container">
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"></span>
+                        </div>
+                        <input asp-for="receita" type="text" placeholder="Id da Receita">
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <div class="d-flex justify-content-center mt-3 login_container">
-                            <a class="nav-link" asp-area="" asp-controller="AdminChoose" asp-action="MenuAdmin"><font color="red"><b>Administrador</b></font></a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex justify-content-center mt-3 login_container">
-                            <a class="nav-link" asp-area="" asp-controller="AdminChoose" asp-action="MenuUser"><font color="blue"><b>Utilizador</b></font></a>
+                            <button type="submit" name="button" class="btn login_btn">Remover</button>
                         </div>
                     </div>
                 </div>
