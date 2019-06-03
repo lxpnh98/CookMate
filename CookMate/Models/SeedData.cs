@@ -216,13 +216,19 @@ namespace CookMate.Models
 
                 // TODO: Passo 
 
-                //var passos = new List<Passo>
-                //{
-                //    new Passo
-                //    {
-                //        tempo = 
-                //    }
-                //}
+                var passos = new List<Passo>
+                {
+                    new Passo
+                    {
+                        tempo = 10,
+                        temporizador = true,
+                        idReceita = receitas[0].id,
+                        titulo = "test",
+                        idOperacao = 0,
+                        ordem = 1
+                    }
+                };
+                context.Passo.AddRange(passos);
 
 
                 //Video

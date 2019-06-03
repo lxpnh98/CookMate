@@ -48,9 +48,12 @@ namespace CookMate.Controllers {
                 utensilios.Add(u);
             }
 
+            var passos = _context.Passo.Where(r => r.idReceita == id).OrderBy(o=>o.ordem).ToList();
+
             ViewData["receita"] = receita;
             ViewData["ingredientes"] = ingredientes;
             ViewData["utensilios"] = utensilios;
+            ViewData["passos"] = passos;
 
             return View("~/Views/Home/receita.cshtml");
         }

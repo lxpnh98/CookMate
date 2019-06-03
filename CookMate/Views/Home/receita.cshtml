@@ -42,12 +42,12 @@
                     }
                 </ul>
                 <b>Preparação:</b>
-                <!--    <ul class="list-group">
-                    for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                <ul class="list-group">
+                    @foreach (var p in (List<Passo>)ViewData["passos"])
                     {
-                <li class="list-item" style="margin-left: 2.5em;"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="ViewData["Passo x"]">Passo X: Conteudo</a></li>
-                    
-                </ul> -->
+                        <li class="list-item" style="margin-left: 2.5em;"><a class="nav-link" href="/Passo/@(p.id)">@(p.titulo)</a></li>
+                    }
+                </ul>
             </div>
             <div class="col-sm-6">
                 <b>Informação Adicional:</b>

@@ -46,6 +46,18 @@ namespace CookMate.Models {
         }
 
         [Required]
+        public string titulo {
+            set;
+            get;
+        }
+
+        [Required]
+        public int ordem {
+            set;
+            get;
+        }
+
+        [Required]
         [ForeignKey("Operacao")]
         public int idOperacao {
             set;
