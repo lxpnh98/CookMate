@@ -16,11 +16,11 @@ namespace CookMate.Controllers {
         public AddPassoController (UtilizadorContext context) {
             _context = context;
         }
-
+        /*
         public IActionResult Voltar() {
             Console.WriteLine("\n\n\n{0}\n\n\n",(int)HttpContext.Session.GetInt32("idReceita"));
             return View("~/Views/Home/intermedio.cshtml");
-        }
+        }*/
 
         [HttpPost]
         public IActionResult Initial(AddReceitaModel model) {
