@@ -16,36 +16,43 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container">
-                <form asp-controller="" asp-action="" method="post">
+                <form asp-controller="AddIngrediente" asp-action="Initial" method="post">
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <input asp-for="ingrediente" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Ingredient">
+                        <input asp-for="ingrediente" type="text" placeholder="Ingredient">
+                        <div class="text-danger text-wrap">
+                            @Html.ValidationMessage("IngredienteInvalido")
+                        </div>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <input asp-for="quantidade" type="number" name="" class="form-control input_ingredientes" value="" placeholder="Quantity">
+                        <input asp-for="quantidade" type="number" placeholder="Quantity">
+                        <div class="text-danger text-wrap">
+                            @Html.ValidationMessage("QuantidadeInvaliado")
+                        </div>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <input asp-for="unidade" type="text" name="" class="form-control input_ingredientes" value="" placeholder="Unity">
+                        <input asp-for="unidade" type="text" placeholder="Unity">
+                        <div class="text-danger text-wrap">
+                            @Html.ValidationMessage("UnidadeInvaliado")
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="submit" name="button">Add</button>
                     </div>
                 </form>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn">Add</button>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn">Next Step</button>
+                        <a class="nav-link" asp-area="" asp-controller="AddIngrediente" asp-action="Confirm"><b>Confirm</b></a>
                     </div>
                 </div>
             </div>
