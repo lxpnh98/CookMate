@@ -8,6 +8,9 @@ namespace CookMate.Models
 {
     public static class SeedData
     {
+        // Mudar o path do repositório para ter acesso aos recursos
+        static private String gitRepoAbsolutePath = "D:\\Desktop\\LI4\\CookMate\\";
+
         public static void Initialize(IServiceProvider serviceProvider)
         {
             using (var context = new UtilizadorContext(
@@ -224,10 +227,48 @@ namespace CookMate.Models
                 //}
 
 
+                //Video
+                var videos = new List<Video>
+                {
+                    new Video { ficheiro = gitRepoAbsolutePath + "Recursos\\Video\\bolo_de_bolacha.mp4" }
+                };
+                context.Video.AddRange(videos);
 
+                //Imagem
+                var imagens = new List<Imagem>
+                {
+                    new Imagem { ficheiro = gitRepoAbsolutePath + "Recursos\\Imagem\\bolo_de_bolacha.jpg" }
+                };
+                context.Imagem.AddRange(imagens);
 
+                //Descrição
+                var descricoes = new List<Descricao>
+                {
+                    new Descricao { texto = "Um bolo de bolacha de café delicioso" }
+                };
+                context.Descricao.AddRange(descricoes);
 
+                //Hiperligação
+                var hiperligacoes = new List<Hiperligacao>
+                {
+                    new Hiperligacao { url = "https://www.teleculinaria.pt/receitas/doces-e-sobremesas//bolo-bolacha-cafe/" }
+                };
+                context.Hiperligacao.AddRange(hiperligacoes);
+                context.SaveChanges();
 
+                // Recurso
+                var recursos = new List<Recurso>
+                {
+                    new Recurso {tipo = 0, idVideo = videos[0].id, idImagem = imagens[0].id, idDescricao = descricoes[0].id, idHiperligacao = hiperligacoes[0].id}
+                };
+                context.Recurso.AddRange(recursos);
+
+                // RecursoReceita
+                context.AddRange(
+                    new RecursoReceita { Receita = receitas[0], Recurso = recursos[0]}
+                );
+
+                // Avaliação
                 var avaliacoes = new List<Avaliacao>
                 {
                     new Avaliacao{Utilizador = utilizadores[3], pontuacao = 5, comentario = "Muito bom, está de parabéns!"},
@@ -237,7 +278,7 @@ namespace CookMate.Models
 
 
                 context.SaveChanges();
-
+                
 
             }
         }
