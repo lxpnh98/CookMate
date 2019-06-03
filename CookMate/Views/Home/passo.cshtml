@@ -12,12 +12,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-
 <ul>
     <li> <a href="#">Receitas Favoritas</a> </li>
     <li> <a href="#">Gestão de Inverntário</a> </li>
     <li> <a href="#">Agenda de Refeições</a> </li>
-    <li> <a href="/api/Utilizador/@ViewData["id"]">Perfil</a> </li>
+    <li> <a href="/api/Utilizador/1">Perfil</a> </li>
     <li> <a href="#">Definições</a> </li>
     <li> <a href="#">Logout </a></li>
     <li style="float:right"><a class="active">@ViewData["username"]</a></li>
@@ -26,6 +25,8 @@
 @{
     var receita = (Receita)ViewData["receita"];
     var passo = (Passo)ViewData["passo"];
+    var next = (Passo)ViewData["next"];
+    var previous = (Passo)ViewData["previous"];
     var ingredientes = (List<Ingrediente>)ViewData["ingredientes"];
 }
 
@@ -43,9 +44,13 @@
         </div>
 
         <div class="col-sm-6">
-            <button type="button" name="button" class="anterior" style="float: right">Anterior</button>
-            <button type="button" name="button" class="repetir" style="float: right">Repetir</button>
-            <button type="button" name="button" class="proximo" style="float: right">Próximo</button>
+            @if (previous != null) {
+                <a href="/api/Passo/@(previous.id)">Previous</a>
+            }
+            <button type="button" name="button" class="repetir" style="float: right">Repeat</button>
+            @if (next != null) {
+                <a href="/api/Passo/@(next.id)">Next</a>
+            }
 
         </div>
     </div>

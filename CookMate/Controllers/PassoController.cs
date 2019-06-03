@@ -42,8 +42,13 @@ namespace CookMate.Controllers {
                 ingredientes.Add(i);
             }
 
+            var next = _context.Passo.Where(p => p.idReceita == passo.idReceita && p.ordem == passo.ordem + 1).SingleOrDefault();
+            var previous = _context.Passo.Where(p => p.idReceita == passo.idReceita && p.ordem == passo.ordem - 1).SingleOrDefault();
+
             ViewData["receita"] = receita;
             ViewData["passo"] = passo;
+            ViewData["next"] = next;
+            ViewData["previous"] = previous;
             ViewData["ingredientes"] = ingredientes;
             return View("~/Views/Home/passo.cshtml");
         }

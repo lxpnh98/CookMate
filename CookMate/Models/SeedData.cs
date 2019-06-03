@@ -223,9 +223,27 @@ namespace CookMate.Models
                         tempo = 10,
                         temporizador = true,
                         idReceita = receitas[0].id,
-                        titulo = "test",
+                        titulo = "test (inicial)",
                         idOperacao = 0,
                         ordem = 1
+                    },
+                    new Passo
+                    {
+                        tempo = 5,
+                        temporizador = true,
+                        idReceita = receitas[0].id,
+                        titulo = "test 2",
+                        idOperacao = 0,
+                        ordem = 2
+                    },
+                    new Passo
+                    {
+                        tempo = 0,
+                        temporizador = false,
+                        idReceita = receitas[0].id,
+                        titulo = "test 3 (final)",
+                        idOperacao = 0,
+                        ordem = 3
                     }
                 };
                 context.Passo.AddRange(passos);
