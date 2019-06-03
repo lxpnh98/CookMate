@@ -26,7 +26,7 @@ namespace CookMate.Controllers {
         public IActionResult Delete(DeleteModel model) {
             int id = (int)HttpContext.Session.GetInt32("id");
             var user = _context.Utilizador.Find(id);
-            if (user.password == model.password) {
+            if (user != null && user.password == model.password) {
                 _context.Utilizador.Remove(user);
                 _context.SaveChanges();
                 return View("~/Views/Login/Login.cshtml");
