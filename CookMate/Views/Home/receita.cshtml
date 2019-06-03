@@ -65,7 +65,7 @@
                     switch (r.tipo)
                     {
                         case 0:
-                            <iframe class="embed-responsive-item" src="@(r.Video.ficheiro)" width="400" height="300"></iframe>
+                            <iframe width="400" height="300" src="@(r.Video.ficheiro)" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             break;
                         case 1:
                             <img src="@(r.Imagem.ficheiro)" width="400" height="300">
@@ -74,7 +74,7 @@
                             <li>@(r.Descricao.texto)</li>
                             break;
                         case 3:
-                            <a href=@(r.Hiperligacao.url)>@(r.Hiperligacao)</a>
+                            <a href=@(r.Hiperligacao.url)>@(r.Hiperligacao.url)</a>
                             break;
                     }
                 }

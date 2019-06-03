@@ -20,7 +20,7 @@ namespace CookMate.Models {
         }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string nome {
             set;
             get;
