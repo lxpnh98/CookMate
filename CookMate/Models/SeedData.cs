@@ -160,10 +160,11 @@ namespace CookMate.Models
 
                 // TODO: Add ciclo
 
-                // TODO: Add UtilizadorReceita
-                //context.AddRange(
-                //    new UtilizadorReceita { Receita = receitas[0],  },    
-                //);
+                // Add UtilizadorReceita (receitas favoritas)
+                context.AddRange(
+                    new UtilizadorReceita { idReceita = receitas[0].id, idUtilizador = utilizadores[0].id },
+                    new UtilizadorReceita { idReceita = receitas[0].id, idUtilizador = utilizadores[3].id }
+                );
 
 
                 //Add Ingredientes
