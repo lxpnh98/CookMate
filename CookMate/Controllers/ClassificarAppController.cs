@@ -28,8 +28,7 @@ namespace CookMate.Controllers {
 
             if (model.classificacao != 0) {
                 int? id = HttpContext.Session.GetInt32("id");
-                if (id == null)
-                {
+                if (id == null) {
                     Console.WriteLine("\n\n\nERROR\n\n\n");
                 }
                 var avaliacao = new Avaliacao
@@ -40,6 +39,9 @@ namespace CookMate.Controllers {
                 };
                 _context.Avaliacao.Add(avaliacao);
                 _context.SaveChanges();
+                ViewData["id"] = HttpContext.Session.GetInt32("id");
+                ViewData["username"] = HttpContext.Session.GetString("username");
+                ViewData["receitas"] = _context.Receita.ToArray();
                 return View("~/Views/Home/menu.cshtml");
             } else {
                 ModelState.AddModelError("MissingClassification", "Classification field is empty.");
