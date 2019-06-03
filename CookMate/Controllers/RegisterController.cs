@@ -157,7 +157,7 @@ namespace CookMate.Controllers {
             string imagePath;
             string descricao;
             if (model.image != null) {
-                imagePath = model.image.Name;
+                imagePath = model.image;
             } else {
                 imagePath = "";
             }
@@ -235,7 +235,7 @@ namespace CookMate.Controllers {
 
         public string caramelo { get; set; }
 
-        public IFormFile image { get; set; }
+        public string image { get; set; }
 
         public string descricao { get; set; }
     }
