@@ -55,7 +55,7 @@ namespace CookMate.Controllers {
             }
 
             var recursos = new List<Recurso>();
-            var rrs = _context.Receita.Where(r => r.id == id).SelectMany(r => r.RecursoReceitas);
+            var rrs = _context.Receita.Where(r => r.id == id).SelectMany(r => r.RecursoReceitas).OrderBy(rr => rr.ordem).ToList();
             foreach (var rr in rrs) {
                 var r = _context.Recurso.Find(rr.idRecurso);
                 switch (r.tipo) {

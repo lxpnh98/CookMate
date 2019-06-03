@@ -290,18 +290,18 @@ namespace CookMate.Models
 
                 // RecursoReceita
                 context.AddRange(
-                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[0].id},
-                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[1].id},
-                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[2].id},
-                    new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[3].id}
+                    new RecursoReceita { ordem = 2, idReceita = receitas[0].id, idRecurso = recursos[0].id},
+                    new RecursoReceita { ordem = 3, idReceita = receitas[0].id, idRecurso = recursos[1].id},
+                    new RecursoReceita { ordem = 1, idReceita = receitas[0].id, idRecurso = recursos[2].id},
+                    new RecursoReceita { ordem = 4, idReceita = receitas[0].id, idRecurso = recursos[3].id}
                 );
 
                 // RecursoReceita
                 context.AddRange(
-                    new RecursoPasso { idPasso = passos[0].id, idRecurso = recursos[0].id},
-                    new RecursoPasso { idPasso = passos[0].id, idRecurso = recursos[1].id},
-                    new RecursoPasso { idPasso = passos[1].id, idRecurso = recursos[2].id},
-                    new RecursoPasso { idPasso = passos[2].id, idRecurso = recursos[3].id}
+                    new RecursoPasso { ordem = 1, idPasso = passos[0].id, idRecurso = recursos[0].id},
+                    new RecursoPasso { ordem = 2, idPasso = passos[0].id, idRecurso = recursos[1].id},
+                    new RecursoPasso { ordem = 1, idPasso = passos[1].id, idRecurso = recursos[2].id},
+                    new RecursoPasso { ordem = 1, idPasso = passos[2].id, idRecurso = recursos[3].id}
                 );
 
                 // Avaliação

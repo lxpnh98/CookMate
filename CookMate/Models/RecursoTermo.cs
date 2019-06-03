@@ -14,6 +14,12 @@ namespace CookMate.Models {
 
     public class RecursoTermo {
         [Required]
+        public int ordem {
+            set;
+            get;
+        }
+
+        [Required]
         [ForeignKey("Termo")]
         public int idTermo {
             set;
