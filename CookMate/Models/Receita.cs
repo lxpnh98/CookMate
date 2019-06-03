@@ -35,8 +35,26 @@ namespace CookMate.Models {
         }
 
         [Required]
+        public int dificuldade {
+            set;
+            get;
+        }
+
+        [Required]
+        public int valorEnergetico {
+            set;
+            get;
+        }
+
+        [Required]
         [ForeignKey("Categoria")]
         public int idCategoria {
+            set;
+            get;
+        }
+
+        [Required]
+        public string imagem {
             set;
             get;
         }

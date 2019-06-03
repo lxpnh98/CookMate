@@ -110,7 +110,7 @@ namespace CookMate.Models
                 // Add Receita
                 var receitas = new List<Receita>
                 {
-                    new Receita { titulo = "Bolo de Bolacha", tempo = new TimeSpan(2,30,0), idCategoria = categorias[2].id, Categoria = categorias[2]}
+                    new Receita { titulo = "Bolo de Bolacha", dificuldade = 3, valorEnergetico = 4000, imagem = "https://www.saborintenso.com/attachments/videos-doces/375d1252681021-bolo-bolacha-bolo-bolacha-1.jpg", tempo = new TimeSpan(2,30,0), idCategoria = categorias[2].id, Categoria = categorias[2]}
                 };
                 context.Receita.AddRange(receitas);
                 //context.SaveChanges();
