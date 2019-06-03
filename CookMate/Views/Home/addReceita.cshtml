@@ -30,7 +30,7 @@
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <input asp-for="dificuldade" pattern="[1-5]{1}" placeholder="Difficulty">
+                        <input asp-for="dificuldade" type="number" pattern="[1-5]{1}" placeholder="Difficulty">
                     </div>
                     <div class="text-danger text-wrap">
                         @Html.ValidationMessage("DificuldadeInvalida")
@@ -39,7 +39,7 @@
                         <div class="input-group-append">
                             <span class="input-group-text"></span>
                         </div>
-                        <input asp-for="valorEnergetico" pattern="[0-9]+" placeholder="Energetic value">
+                        <input asp-for="valorEnergetico" type="number" pattern="[0-9]+" placeholder="Energetic value">
                     </div>
                     <div class="text-danger text-wrap">
                         @Html.ValidationMessage("ValorEnergeticoInvalida")

@@ -32,11 +32,11 @@ namespace CookMate.Controllers {
                 valid = false;
                 ModelState.AddModelError("TituloInvalido", "Title must be non-empty.");
             }
-            if (model.dificuldade >= 1 && model.dificuldade <= 5) {
+            if (model.dificuldade < 1 && model.dificuldade > 5) {
                 valid = false;
                 ModelState.AddModelError("DificuldadeInvalida", "Difficulty must be between 1 and 5.");
             }
-            if (model.valorEnergetico > 0) {
+            if (model.valorEnergetico < 0) {
                 valid = false;
                 ModelState.AddModelError("ValorEnergeticoInvalida", "Energetic value must be a positive integer.");
             }
@@ -46,12 +46,31 @@ namespace CookMate.Controllers {
             }
 
             if (valid == true) {
-                HttpContext.Session.SetString("titulo", model.titulo);
-                HttpContext.Session.SetInt32("dificuldade", model.dificuldade);
-                HttpContext.Session.SetInt32("valorEnergetico", model.valorEnergetico);
-                HttpContext.Session.SetString("categoria", model.categoria);
+                var categoria = _context.Categoria.Where(c => c.nome == model.categoria).FirstOrDefault();
+
+                if (categoria == null)
+                {
+                    categoria = new Categoria {
+                        id = 0,
+                        nome = model.categoria
+                    };
+                    _context.Categoria.Add(categoria);
+                    _context.SaveChanges();
+                }
+                var receita = new Receita {
+                    titulo = model.titulo,
+                    dificuldade = model.dificuldade,
+                    tempo = new TimeSpan(0,0,0),
+                    valorEnergetico = model.valorEnergetico,
+                    idCategoria = categoria.id,
+                    imagem = " "
+                };
+                _context.Receita.Add(receita);
+                _context.SaveChanges();
+                Console.WriteLine("\n\n {0} \n\n", receita.idCategoria);
+                return View("~/Views/Home/addPasso.cshtml");
             }
-            return View("~/Views/Home/addPasso.cshtml");
+            return View("~/Views/Home/addReceita.cshtml");
         }
     }
 
