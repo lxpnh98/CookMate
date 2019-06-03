@@ -28,6 +28,11 @@ namespace CookMate.Controllers {
             return View("~/Views/Home/classificarReceita.cshtml");
         }
 
+        public IActionResult ReceitasFavoritas()
+        {
+            return View("~/Views/Home/receitasFavoritas.cshtml");
+        }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult Get(int id) {
