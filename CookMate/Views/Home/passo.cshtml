@@ -13,7 +13,7 @@
 </head>
 
 <ul class="head">
-    <li> <a asp-controller="Login" asp-action="Logout">Back</a></li>
+    <li> <a asp-controller="Receita" asp-action="Menu">Back</a></li>
     <li style="float:right"><a class="active">@ViewData["username"]</a></li>
 </ul>
 
@@ -31,17 +31,34 @@
     <div class="row">
         <div class="col-sm-6">
             <b>@(passo.titulo)</b>
-            @foreach (var i in ingredientes) {
+            @foreach (var i in ingredientes)
+            {
                 <li class="list-item" style="margin-left: 2.5em;">@(i.nome) - @(i.valor) @(i.unidade)</li>
             }
+        </div>
+
+        <div class="col-sm-6">
+            @if (previous != null)
+            {
+                <a href="/api/Passo/@(previous.id)">Previous</a>
+            }
+            @if (next != null)
+            {
+                <a href="/api/Passo/@(next.id)">Next</a>
+            }
+
+        </div>
+
+        <div class="col-sm-12">
             @foreach (var r in recursos)
             {
-                switch (r.tipo) {
+                switch (r.tipo)
+                {
                     case 0:
                         <iframe class="embed-responsive-item" src="@(r.Video.ficheiro)"></iframe>
                         break;
                     case 1:
-                        <img src="@(r.Imagem.ficheiro)"/>
+                        <img src="@(r.Imagem.ficheiro)" />
                         break;
                     case 2:
                         <li>@(r.Descricao.texto)</li>
@@ -51,17 +68,6 @@
                         break;
                 }
             }
-        </div>
-
-        <div class="col-sm-6">
-            @if (previous != null) {
-                <a href="/api/Passo/@(previous.id)">Previous</a>
-            }
-            <button type="button" name="button" class="repetir" style="float: right">Repeat</button>
-            @if (next != null) {
-                <a href="/api/Passo/@(next.id)">Next</a>
-            }
-
         </div>
     </div>
 </div>

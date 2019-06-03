@@ -23,6 +23,9 @@
                         </div>
                         <input asp-for="utensilio" type="text" placeholder="Utensil">
                     </div>
+                    <div class="text-danger text-wrap">
+                        @Html.ValidationMessage("UtensilioInvalido")
+                    </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
                         <button type="submit" name="button">Add</button>
                     </div>
@@ -31,7 +34,7 @@
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="submit" name="button" class="btn login_btn">Confirm</button>
+                        <a class="nav-link" asp-area="" asp-controller="AddUtensilio" asp-action="Confirm"><b>Confirm</b></a>
                     </div>
                 </div>
             </div>
