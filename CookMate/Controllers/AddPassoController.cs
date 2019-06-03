@@ -18,6 +18,7 @@ namespace CookMate.Controllers {
         }
 
         public IActionResult Voltar() {
+            Console.WriteLine("\n\n\n{0}\n\n\n",(int)HttpContext.Session.GetInt32("idReceita"));
             return View("~/Views/Home/intermedio.cshtml");
         }
 
