@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="https://i.imgur.com/EfK7afs.png" class="brand_logo" alt="Logo">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+                <form asp-controller="Delete" asp-action="DeleteAccount" method="post">
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class=""></i></span>
+                        </div>
+                        <input asp-for="password" type="password" placeholder="Password">
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" name="button" class="btn login_btn">Delete Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
