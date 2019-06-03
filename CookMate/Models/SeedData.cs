@@ -296,6 +296,14 @@ namespace CookMate.Models
                     new RecursoReceita { idReceita = receitas[0].id, idRecurso = recursos[3].id}
                 );
 
+                // RecursoReceita
+                context.AddRange(
+                    new RecursoPasso { idPasso = passos[0].id, idRecurso = recursos[0].id},
+                    new RecursoPasso { idPasso = passos[0].id, idRecurso = recursos[1].id},
+                    new RecursoPasso { idPasso = passos[1].id, idRecurso = recursos[2].id},
+                    new RecursoPasso { idPasso = passos[2].id, idRecurso = recursos[3].id}
+                );
+
                 // Avaliação
                 var avaliacoes = new List<Avaliacao>
                 {

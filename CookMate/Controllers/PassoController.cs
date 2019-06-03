@@ -42,6 +42,27 @@ namespace CookMate.Controllers {
                 ingredientes.Add(i);
             }
 
+            var recursos = new List<Recurso>();
+            var rrs = _context.Passo.Where(p => p.id == id).SelectMany(p => p.RecursoPassos);
+            foreach (var rr in rrs) {
+                var r = _context.Recurso.Find(rr.idRecurso);
+                switch (r.tipo) {
+                    case 0:
+                        r.Video = _context.Video.Find(r.idVideo);
+                        break;
+                    case 1:
+                        r.Imagem = _context.Imagem.Find(r.idImagem);
+                        break;
+                    case 2:
+                        r.Descricao = _context.Descricao.Find(r.idDescricao);
+                        break;
+                    case 3:
+                        r.Hiperligacao = _context.Hiperligacao.Find(r.idHiperligacao);
+                        break;
+                }
+                recursos.Add(r);
+            }
+
             var next = _context.Passo.Where(p => p.idReceita == passo.idReceita && p.ordem == passo.ordem + 1).SingleOrDefault();
             var previous = _context.Passo.Where(p => p.idReceita == passo.idReceita && p.ordem == passo.ordem - 1).SingleOrDefault();
 
@@ -50,6 +71,7 @@ namespace CookMate.Controllers {
             ViewData["next"] = next;
             ViewData["previous"] = previous;
             ViewData["ingredientes"] = ingredientes;
+            ViewData["recursos"] = recursos;
             return View("~/Views/Home/passo.cshtml");
         }
 
