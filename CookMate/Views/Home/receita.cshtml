@@ -52,6 +52,23 @@
             </div>
             <div class="col-sm-6">
                 <b>Informação Adicional:</b>
+                    @foreach (var r in (List<Recurso>)ViewData["recursos"])
+                    {
+                        switch (r.tipo) {
+                            case 0:
+                                <iframe class="embed-responsive-item" src="@(r.Video.ficheiro)"></iframe>
+                                break;
+                            case 1:
+                                <img src="@(r.Imagem.ficheiro)"/>
+                                break;
+                            case 2:
+                                <li>@(r.Descricao.texto)</li>
+                                break;
+                            case 3:
+                                <a href=@(r.Hiperligacao.url)>@(r.Hiperligacao)</a>
+                                break;
+                        }
+                    }
                 <!--   <ul class="list-group">
            for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
            {
