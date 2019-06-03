@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/menu.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<form>	
+<ul>
+    <li> <a href="#">Favorite Recipes</a></li>
+    <li> <a href="#">Shopping list</a></li>
+    <li> <a href="/api/Utilizador/@ViewData["id"]">Perfil</a> </li>
+    <li> <a href="~/Views/Home/addReceita.cshtml">Add New Recipe</a> </li>
+    <li> <a href="#">Classify application</a> </li>
+    <li> <a href="#">Definitions</a> </li>
+    <li> <a href="/Login">Logout</a> </li>
+    <li style="float:right"><a class="active">@ViewData["username"]</a> </li>
+</ul>
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <h1>Shopping list</h1>
+            <div class="col-lg-9 content-right">
+                <div class="row selected-classifieds">
+                    <!--{
+                        @var Ingredientes = (Receita[])ViewData["receitas"];
+                        foreach (Receita r in receitas) {
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="thumbnail">
+                                    <a href="/api/Receita/@r.id"><img src="" /></a>
+                                </div>
+                                <div class="caption">
+                                    <h5><a href="/api/Receita/@r.id">@r.titulo</a></h5>
+                                </div>
+                            </div>
+                        }
+                    }-->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
