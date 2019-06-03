@@ -23,18 +23,26 @@
     <li style="float:right"><a class="active">@ViewData["username"]</a></li>
 </ul>
 
+@{
+    var receita = (Receita)ViewData["receita"];
+    var passo = (Passo)ViewData["passo"];
+    var ingredientes = (List<Ingrediente>)ViewData["ingredientes"];
+}
+
 <div class="container-fluid">
-    <h1>Bolo de Bolacha</h1>
+    <h1>@(receita.titulo)</h1>
     <div class="row">
         <div class="col-sm-6">
-            <b>Passo X: </b>
+            <b>@(passo.titulo)</b>
+            @foreach (var i in ingredientes) {
+                <li class="list-item" style="margin-left: 2.5em;">@(i.nome) - @(i.valor) @(i.unidade)</li>
+            }
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
             </div>
         </div>
 
         <div class="col-sm-6">
-
             <button type="button" name="button" class="anterior" style="float: right">Anterior</button>
             <button type="button" name="button" class="repetir" style="float: right">Repetir</button>
             <button type="button" name="button" class="proximo" style="float: right">Próximo</button>
