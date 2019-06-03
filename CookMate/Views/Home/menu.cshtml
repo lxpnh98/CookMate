@@ -39,10 +39,10 @@
                         foreach (Receita r in receitas) {
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                 <div class="thumbnail">
-                                    <a href="api/Receita/{r.id}"><img src="" /></a>
+                                    <a href="api/Receita/@r.id"><img src="" /></a>
                                 </div>
                                 <div class="caption">
-                                    <h5><a href="api/Receita/{r.id}">r.titutlo</a></h5>
+                                    <h5><a href="api/Receita/@r.id">@r.titulo</a></h5>
                                 </div>
                             </div>
                         }

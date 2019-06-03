@@ -27,6 +27,7 @@ namespace CookMate {
                 try
                 {
                     var context = services.GetRequiredService<UtilizadorContext>();
+                    context.Database.EnsureDeleted();
                     context.Database.Migrate();
                     SeedData.Initialize(services);
                 }
