@@ -33,6 +33,20 @@ namespace CookMate.Controllers {
         }       
 
         public IActionResult Confirm() {
+            int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
+            var lista = _context.Passo.Where(r => r.idReceita == idReceita);
+            int total = 0;
+            foreach (var p in lista) {
+                total += p.tempo;
+            }
+
+            var receita = _context.Receita.Find(idReceita);
+            double total2 = (double)total;
+            receita.tempo = TimeSpan.FromMinutes(total2);
+
+            _context.Receita.Update(receita);
+            _context.SaveChanges();
+
             ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
             ViewData["username"] = HttpContext.Session.GetString("username");
             ViewData["receitas"] = _context.Receita.ToArray();

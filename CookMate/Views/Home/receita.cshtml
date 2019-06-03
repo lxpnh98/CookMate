@@ -10,34 +10,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-
-
-<ul>
-    <li> <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Menu">Back</a></li>
-    <li style="float:right"><a class="active">@ViewData["username"]</a></li>
-</ul>
-<form>
-    <div align="left">
-        <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ReceitaFavorita" asp-route-recipe="@(((Receita)ViewData["receita"]).id)"><font color="orange"><b>Add to favorites</b></font></a>
-    </div>
-    <div align="left">
-        <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ClassificarReceita"><font color="orange"><b>Classificar Receita</b></font></a>
-    </div>
-    <div align="left">
-        <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Adicionar"><font color="orange"><b>Adicionar Ingredinetes à Lista de Compras</b></font></a>
-    </div>
-</form>
+@{
+    var receita = (Receita)ViewData["receita"];
+}
+    <ul>
+        <li> <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Menu">Back</a></li>
+        <li style="float:right"><a class="active">@ViewData["username"]</a></li>
+    </ul>
+    <form>
+        <div align="left">
+            <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ReceitaFavorita" asp-route-recipe="@(((Receita)ViewData["receita"]).id)"><font color="orange"><b>Add to favorites</b></font></a>
+        </div>
+        <div align="left">
+            <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ClassificarReceita"><font color="orange"><b>Classificar Receita</b></font></a>
+        </div>
+        <div align="left">
+            <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Adicionar"><font color="orange"><b>Adicionar Ingredinetes à Lista de Compras</b></font></a>
+        </div>
+    </form>
     <div class="container-fluid">
-        <h1>Bolo de Bolacha</h1>
+        <h1>@(receita.titulo)</h1>
         <div class="row">
             <div class="col">
-                <b>Ingredientes:</b> (para 8 pessoas)
+                <b>Ingredientes:</b>
                 <ul class="list-group">
                     @foreach (var i in (List<Ingrediente>)ViewData["ingredientes"])
                     {
-                        if (i.unidade == "q.b.") {
+                        if (i.unidade == "q.b.")
+                        {
                             <li class="list-item" style="margin-left: 2.5em;">@(i.nome) @(i.unidade)</li>
-                        } else {
+                        }
+                        else
+                        {
                             <li class="list-item" style="margin-left: 2.5em;">@(i.nome) - @(i.valor) @(i.valor > 1 ? i.unidade + "s" : i.unidade)</li>
                         }
                     }
