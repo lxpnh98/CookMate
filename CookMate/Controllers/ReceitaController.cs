@@ -6,6 +6,7 @@ using CookMate.Models;
 using CookMate.Controllers;
 using CookMate.shared;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace CookMate.Controllers {
 
@@ -50,6 +51,7 @@ namespace CookMate.Controllers {
 
             var passos = _context.Passo.Where(r => r.idReceita == id).OrderBy(o=>o.ordem).ToList();
 
+            ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
             ViewData["receita"] = receita;
             ViewData["ingredientes"] = ingredientes;
             ViewData["utensilios"] = utensilios;

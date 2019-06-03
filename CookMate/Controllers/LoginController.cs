@@ -32,7 +32,7 @@ namespace CookMate.Controllers {
                 if(user.password == model.password) {
                     HttpContext.Session.SetInt32("id", user.id);
                     HttpContext.Session.SetString("username", user.username);
-                    ViewData["id"] = HttpContext.Session.GetInt32("id");
+                    ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
                     ViewData["username"] = HttpContext.Session.GetString("username");
                     ViewData["receitas"] = _context.Receita.ToArray();
                     return View("~/Views/Admin/choose.cshtml");
