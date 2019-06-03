@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Receita";
 }
-
 <head>
     <link rel="stylesheet" href="~/css/menu.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -11,7 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-
 <ul>
     <li> <a asp-controller="Login" asp-action="Logout">Favorite Recipes</a></li>
     <li> <a asp-controller="Login" asp-action="Logout">Shopping list</a></li>
@@ -20,10 +18,17 @@
     <li> <a asp-controller="Home" asp-action="ClassificarApp">Classify application</a> </li>
     <li> <a asp-controller="Login" asp-action="Logout">Definitions</a> </li>
     <li> <a asp-controller="Login" asp-action="Logout">Logout</a> </li>
-    <li style="float:right"><a class="active">@ViewData["username"]</a> </li>
+    <!-- <li style="float:right"><a class="active">ViewData["username"]</a> </li> -->
 </ul>
 
-<div class="container-fluid">
+<div class="user_card">
+    <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+            <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ClassificarReceita"><b>Classificar Receita</b></a>
+        </div>
+    </div>
+</div>
+    <div class="container-fluid">
         <h1>Bolo de Bolacha</h1>
         <div class="row">
             <div class="col-sm-6">
@@ -51,46 +56,43 @@
             </div>
             <div class="col-sm-6">
                 <b>Informação Adicional:</b>
-                    @foreach (var r in (List<Recurso>)ViewData["recursos"])
+                @foreach (var r in (List<Recurso>)ViewData["recursos"])
+                {
+                    switch (r.tipo)
                     {
-                        switch (r.tipo) {
-                            case 0:
-                                <iframe class="embed-responsive-item" src="@(r.Video.ficheiro)"></iframe>
-                                break;
-                            case 1:
-                                <img src="@(r.Imagem.ficheiro)"/>
-                                break;
-                            case 2:
-                                <li>@(r.Descricao.texto)</li>
-                                break;
-                            case 3:
-                                <a href=@(r.Hiperligacao.url)>@(r.Hiperligacao)</a>
-                                break;
-                        }
+                        case 0:
+                            <iframe class="embed-responsive-item" src="@(r.Video.ficheiro)"></iframe>
+                            break;
+                        case 1:
+                            <img src="@(r.Imagem.ficheiro)">
+                            break;
+                        case 2:
+                            <li>@(r.Descricao.texto)</li>
+                            break;
+                        case 3:
+                            <a href=@(r.Hiperligacao.url)>@(r.Hiperligacao)</a>
+                            break;
                     }
-                <!--   <ul class="list-group">
-        for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
-        {
-            <li class="list-item" style="margin-left: 2.5em;">ViewData["Message"]</li>
-         }
-         </ul> -->
+                }
+                <!--<ul class="list-group">
+                    for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+                    {
+                        <li class="list-item" style="margin-left: 2.5em;">ViewData["Message"]</li>
+                    }
+                </ul> -->
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
                 </div>
             </div>
-                <div class="col-sm-2">
-                    <div align="right">
-                        <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ReceitaFavorita">Receita Favorita</a>
-                    </div>
-                    <h>.</h>
-
-                    <div align="right">
-                        <a asp-controller="Receita" asp-action="ClassificarReceita">Classificar Receita</a>
-                    </div>
-                    <h>.</h>
-                    <div align="right">
-                        <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Adicionar">Adicionar Ingredinetes à Lista de Compras</a>
-                    </div>
+            <div class="col-sm-2">
+                <div align="right">
+                    <!--     <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ReceitaFavorita">Receita Favorita</a>-->
                 </div>
+                <h>.</h>
+                <h>.</h>
+                <div align="right">
+                    <!--       <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Adicionar">Adicionar Ingredinetes à Lista de Compras</a> -->
+                </div>
+            </div>
         </div>
     </div>

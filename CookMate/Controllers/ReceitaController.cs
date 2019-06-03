@@ -21,14 +21,7 @@ namespace CookMate.Controllers {
         }
         
         public IActionResult ClassificarReceita() {
-            Console.WriteLine("\n\n\n Passei aqui \n\n\n");
             return View("~/Views/Home/classificarReceita.cshtml");
-        }
-
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<Receita>> Get() {
-            return _context.Receita.ToArray();
         }
 
         // GET api/values/5
@@ -78,6 +71,8 @@ namespace CookMate.Controllers {
             var passos = _context.Passo.Where(r => r.idReceita == id).OrderBy(o=>o.ordem).ToList();
 
             ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+            Console.WriteLine("\n\n{0}\n\n", HttpContext.Session.GetString("username"));
+            ViewData["username"] = HttpContext.Session.GetString("username");
             ViewData["receita"] = receita;
             ViewData["ingredientes"] = ingredientes;
             ViewData["utensilios"] = utensilios;
@@ -99,16 +94,14 @@ namespace CookMate.Controllers {
 
 
         [HttpPost]
-        public IActionResult Add([FromBody] Receita receita)
-        {
+        public IActionResult Add([FromBody] Receita receita) {
             _context.Receita.Add(receita);
             _context.SaveChanges();
             return new CreatedResult($"/api/receita/{receita.id}", receita);
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromQuery] int id)
-        {
+        public IActionResult Delete([FromQuery] int id) {
             var receita = _context.Receita.Find(id);
             if(receita == null)
             {
