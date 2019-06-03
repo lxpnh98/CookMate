@@ -17,9 +17,7 @@ namespace CookMate.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<UtilizadorContext>>()))
             {
-
-              
-
+                
                 //TODO: ver isto
                 if (context.Utilizador.Any())
                 {
@@ -82,7 +80,7 @@ namespace CookMate.Models
                         podeAdicionarReceita = true,
                         imagePath = "",
                         descricao = "i am admin",
-                        admin = false
+                        admin = true
                     }
                 };
                 context.Utilizador.AddRange(utilizadores);
