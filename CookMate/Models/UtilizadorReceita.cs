@@ -22,7 +22,7 @@ namespace CookMate.Models {
 
         [NotMapped]
         [JsonIgnore]
-        public Utilizador Utilizador {
+        public virtual Utilizador Utilizador {
             set;
             get;
         }
@@ -36,7 +36,7 @@ namespace CookMate.Models {
 
         [NotMapped]
         [JsonIgnore]
-        public Receita Receita {
+        public virtual Receita Receita {
             set;
             get;
         }

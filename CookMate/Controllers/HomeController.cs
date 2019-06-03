@@ -16,6 +16,19 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
+        public IActionResult Favorite() {
+            var receitas = new List<Receita>();
+
+            int id = (int)HttpContext.Session.GetInt32("id");
+            var lista = _context.Utilizador.Where(u => u.id == id).SelectMany(u => u.UtilizadorReceitas);
+            foreach(var ur in lista) {
+                var r = _context.Receita.Find(ur.idReceita);
+                receitas.Add(r);
+            }
+            ViewData["receitas"] = receitas;
+            return View("~/Views/Home/receitasFavoritas.cshtml");
+        }
+
         public IActionResult AddReceita() {
             int id = (int)HttpContext.Session.GetInt32("id");
             var user = _context.Utilizador.Find(id);
