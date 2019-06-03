@@ -20,16 +20,24 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
+        [Route("~/Menu")]
         public IActionResult Menu() {
+            ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
             return View("~/Views/Menu/menu.cshtml");
         }
 
+        [Route("~/ClassificarReceita")]
         public IActionResult ClassificarReceita() {
             return View("~/Views/Home/classificarReceita.cshtml");
         }
 
-        public IActionResult ReceitasFavoritas()
-        {
+        [Route("~/ReceitasFavoritas")]
+        public IActionResult ReceitasFavoritas() {
+            ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
             return View("~/Views/Home/receitasFavoritas.cshtml");
         }
 
