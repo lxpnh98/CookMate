@@ -27,6 +27,5 @@ namespace CookMate.Controllers {
         public IActionResult Logout() {
             return View("~/Views/Login/Login.cshtml");
         }
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,21 +21,47 @@ namespace CookMate.Controllers {
             _context = context;
         }
 
+        [Route("~/Menu")]
         public IActionResult Menu() {
             return View("~/Views/Menu/menu.cshtml");
         }
 
+        [Route("~/ClassificarReceita")]
         public IActionResult ClassificarReceita() {
             return View("~/Views/Home/classificarReceita.cshtml");
         }
 
-        public IActionResult ReceitasFavoritas()
+        [Route("~/ReceitaFavorita")]
+        public IActionResult ReceitaFavorita([FromQuery] FavoritaModel model)
         {
-            return View("~/Views/Home/receitasFavoritas.cshtml");
+            var id = (int)HttpContext.Session.GetInt32("id");
+            var urs = _context.Utilizador.Where(u => u.id == id).SelectMany(u => u.UtilizadorReceitas);
+            var redundant = false;
+            foreach (var ur in urs) {
+                if (ur.idReceita == model.recipe) {
+                    redundant = true;
+                    break;
+                }
+            }
+
+            if (redundant == false) {
+                _context.AddRange(
+                    new UtilizadorReceita {
+                        idUtilizador = id,
+                        idReceita = model.recipe 
+                    }
+                );
+            }
+            
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            ViewData["receitas"] = _context.Receita.ToArray();
+            return View("~/Views/Menu/menu.cshtml");
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
+        [Route("/api/Receita/{id}")]
         public ActionResult Get(int id) {
             var receita = _context.Receita.Find(id);
             if (receita == null)
@@ -119,4 +146,10 @@ namespace CookMate.Controllers {
             return NoContent();
         }
     }
+
+    public class FavoritaModel {
+
+        public int recipe { get; set; }
+    }
+    
 }
