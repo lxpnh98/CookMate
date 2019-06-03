@@ -18,6 +18,11 @@ namespace CookMate.Controllers {
         public ReceitaController(UtilizadorContext context) {
             _context = context;
         }
+        
+        public IActionResult ClassificarReceita() {
+            Console.WriteLine("\n\n\n Passei aqui \n\n\n");
+            return View("~/Views/Home/classificarReceita.cshtml");
+        }
 
         // GET api/values
         [HttpGet]

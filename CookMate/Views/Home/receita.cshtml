@@ -53,14 +53,14 @@
             <div class="col-sm-6">
                 <b>Informação Adicional:</b>
                 <!--   <ul class="list-group">
-           for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
-           {
-               <li class="list-item" style="margin-left: 2.5em;">ViewData["Message"]</li>
-            }
-            </ul> -->
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
-            </div>
+        for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+        {
+            <li class="list-item" style="margin-left: 2.5em;">ViewData["Message"]</li>
+         }
+         </ul> -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/26svno14ADU"></iframe>
+                </div>
             </div>
             <form>
                 <div class="col-sm-2">
@@ -68,8 +68,9 @@
                         <button type="submit" name="button" class="btn login_btn">Receita Favorita</button>
                     </div>
                     <h>.</h>
+
                     <div align="right">
-                        <button type="submit" name="button" class="btn login_btn">Classificar Receita</button>
+                        <button class="nav-link" asp-area="" asp-controller="Receita" asp-action="ClassificarReceita">Classificar Receita</button>
                     </div>
                     <h>.</h>
                     <div align="right">

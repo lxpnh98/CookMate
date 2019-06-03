@@ -19,9 +19,9 @@ namespace CookMate.Controllers {
         public IActionResult ClassificarApp() {
             return View("~/Views/Home/classificarAplicacao.cshtml");
         }
-        public IActionResult Logout() {
 
-            return View("_Login");
+        public IActionResult Logout() {
+            return View("~/Views/Login/Login.cshtml");
         }
 
     }
