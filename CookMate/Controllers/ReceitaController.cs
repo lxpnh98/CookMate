@@ -19,9 +19,18 @@ namespace CookMate.Controllers {
         public ReceitaController(UtilizadorContext context) {
             _context = context;
         }
-        
+
+        public IActionResult Menu() {
+            return View("~/Views/Menu/menu.cshtml");
+        }
+
         public IActionResult ClassificarReceita() {
             return View("~/Views/Home/classificarReceita.cshtml");
+        }
+
+        public IActionResult ReceitasFavoritas()
+        {
+            return View("~/Views/Home/receitasFavoritas.cshtml");
         }
 
         // GET api/values/5
@@ -71,8 +80,6 @@ namespace CookMate.Controllers {
             var passos = _context.Passo.Where(r => r.idReceita == id).OrderBy(o=>o.ordem).ToList();
 
             ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
-            Console.WriteLine("\n\n{0}\n\n", HttpContext.Session.GetString("username"));
-            ViewData["username"] = HttpContext.Session.GetString("username");
             ViewData["receita"] = receita;
             ViewData["ingredientes"] = ingredientes;
             ViewData["utensilios"] = utensilios;
