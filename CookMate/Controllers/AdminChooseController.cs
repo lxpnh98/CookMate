@@ -20,7 +20,7 @@ namespace CookMate.Controllers {
             ViewData["id"] = HttpContext.Session.GetInt32("id");
             ViewData["username"] = HttpContext.Session.GetString("username");
             ViewData["receitas"] = _context.Receita.ToArray();
-            return View("~/Views/Home/menu.cshtml");
+            return View("~/Views/Menu/menu.cshtml");
         }
 
         public IActionResult MenuAdmin() {

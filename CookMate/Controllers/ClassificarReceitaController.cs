@@ -20,7 +20,7 @@ namespace CookMate.Controllers {
             ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
             ViewData["username"] = HttpContext.Session.GetString("username");
             ViewData["receitas"] = _context.Receita.ToArray();
-            return View("~/Views/Home/menu.cshtml");
+            return View("~/Views/Menu/menu.cshtml");
         }
 
         [HttpPost]
@@ -50,7 +50,7 @@ namespace CookMate.Controllers {
                 ViewData["id"] = (int)HttpContext.Session.GetInt32("id");
                 ViewData["username"] = HttpContext.Session.GetString("username");
                 ViewData["receitas"] = _context.Receita.ToArray();
-                return View("~/Views/Home/menu.cshtml");
+                return View("~/Views/Menu/menu.cshtml");
             } else {
                 ModelState.AddModelError("MissingClassification", "Classification must be between 1 and 5.");
                 return View("~/Views/Home/ClassificarReceita.cshtml");

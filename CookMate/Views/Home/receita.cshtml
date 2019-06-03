@@ -11,8 +11,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-<ul class="head">
-    <li> <a asp-controller="Login" asp-action="Logout">Back</a></li>
+<ul>
+    <li> <a asp-controller="Receita" asp-action="Menu">Back</a></li>
     <li style="float:right"><a class="active">@ViewData["username"]</a></li>
 </ul>
 
@@ -44,13 +44,13 @@
             </div>
             <div class="col">
                 <div align="left">
-                    <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="ReceitaFavorita"><font color="orange"><b>Receita Favorita</b></font></a>
+                    <a asp-area="" asp-controller="Receita" asp-action="ReceitaFavorita"><font color="orange"><b>Receita Favorita</b></font></a>
                 </div>
                 <div align="left">
                     <a asp-controller="Receita" asp-action="ClassificarReceita"><font color="orange"><b>Classificar Receita</b></font></a>
                 </div>
                 <div align="left">
-                    <a class="nav-link" asp-area="" asp-controller="Receita" asp-action="Adicionar"><font color="orange"><b>Adicionar Ingredinetes à Lista de Compras</b></font></a>
+                    <a asp-controller="Receita" asp-action="Adicionar"><font color="orange"><b>Adicionar Ingredinetes à Lista de Compras</b></font></a>
                 </div>
                 <h1><small>Informação Adicional:</small></h1>
                 <h2><small>Recursos Auxiliares:</small></h2>
