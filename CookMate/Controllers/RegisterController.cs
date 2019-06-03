@@ -29,7 +29,11 @@ namespace CookMate.Controllers {
         public IActionResult Register(RegisterModel model)
         {
             var valid = true;
-            if (model.password != model.sndPassword)
+            if (model.password == null || model.password.Length < 8)
+            {
+                valid = false;
+                ModelState.AddModelError("PasswordTooShort", "Password must be at least 8 characters.");
+            } else if (model.password != model.sndPassword)
             {
                 valid = false;
                 ModelState.AddModelError("NonMatchingPasswords", "Password must be the same.");
@@ -49,7 +53,10 @@ namespace CookMate.Controllers {
                 valid = false;
                 ModelState.AddModelError("InvalidEmail", "Email provided is not valid.");
             }
-            if (this.idadeValida(model.ano, model.mes, model.dia) == false)
+            if (model.ano == 0 || model.mes == 0 || model.dia == 0) {
+                valid = false;
+                ModelState.AddModelError("InvalidBirthdate", "Date of birth is obligatory.");
+            } else if (this.idadeValida(model.ano, model.mes, model.dia) == false)
             {
                 valid = false;
                 ModelState.AddModelError("InvalidAge", "You must be 16 or older to register.");

@@ -36,9 +36,6 @@
                     <div class="text-danger text-wrap">
                         @Html.ValidationMessage("UsernameAlreadyExists")
                     </div>
-                    <div class="text-danger text-wrap">
-                        @Html.ValidationMessage("EmptyName")
-                    </div>
                     <div class="input-group mb-1">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class=""></i></span>
@@ -63,6 +60,9 @@
                     <div class="text-danger text-wrap">
                         @Html.ValidationMessage("NonMatchingPasswords")
                     </div>
+                    <div class="text-danger text-wrap">
+                        @Html.ValidationMessage("PasswordTooShort")
+                    </div>
                     <div class="input-group mb-1">
                         <div class="input-group-prepend">
                             <span class="input-group-text"></span>
@@ -83,6 +83,9 @@
                     </div>
                     <div class="text-danger text-wrap">
                         @Html.ValidationMessage("InvalidAge")
+                    </div>
+                    <div class="text-danger text-wrap">
+                        @Html.ValidationMessage("InvalidBirthdate")
                     </div>
                     <div class="d-flex justify-content-center mt-3">
                         <button type="submit" name="button" class="btn login_btn">Next</button>

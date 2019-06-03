@@ -12,13 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-<ul>
-    <li> <a href="#">Receitas Favoritas</a> </li>
-    <li> <a href="#">Gestão de Inverntário</a> </li>
-    <li> <a href="#">Agenda de Refeições</a> </li>
-    <li> <a href="/api/Utilizador/1">Perfil</a> </li>
-    <li> <a href="#">Definições</a> </li>
-    <li> <a href="#">Logout </a></li>
+<ul class="head">
+    <li> <a asp-controller="Login" asp-action="Logout">Back</a></li>
     <li style="float:right"><a class="active">@ViewData["username"]</a></li>
 </ul>
 

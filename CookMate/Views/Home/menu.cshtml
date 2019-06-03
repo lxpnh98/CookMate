@@ -12,10 +12,9 @@
 <ul>
     <li> <a asp-controller="Login" asp-action="Logout">Favorite Recipes</a></li>
     <li> <a asp-controller="Login" asp-action="Logout">Shopping list</a></li>
-    <li> <a href="/api/Utilizador/@ViewData["id"]">Perfil</a> </li>
+    <li> <a href="/api/Utilizador/@ViewData["id"]">Profile</a> </li>
     <li> <a asp-controller="Home" asp-action="AddReceita">Add New Recipe</a> </li>
     <li> <a asp-controller="Home" asp-action="ClassificarApp">Classify application</a> </li>
-    <li> <a asp-controller="Login" asp-action="Logout">Definitions</a> </li>
     <li> <a asp-controller="Home" asp-action="Logout">Logout</a> </li>
     <li style="float:right"><a class="active">@ViewData["username"]</a> </li>
 </ul>
@@ -39,7 +38,7 @@
                         foreach (Receita r in receitas) {
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                 <div class="thumbnail">
-                                    <a href="/api/Receita/@r.id"><img src="" /></a>
+                                    <a href="/api/Receita/@r.id"><img src="@r.imagem" /></a>
                                 </div>
                                 <div class="caption">
                                     <h5><a href="/api/Receita/@r.id">@r.titulo</a></h5>
