@@ -29,7 +29,7 @@ namespace CookMate.Controllers {
 
         public IActionResult Ingrediente() {
             ViewData["idReceita"] = (int)HttpContext.Session.GetInt32("idReceita");
-            return View("~/Views/Home/addIngredinete.cshtml");
+            return View("~/Views/Home/addIngrediente.cshtml");
         }       
 
         public IActionResult Confirm() {

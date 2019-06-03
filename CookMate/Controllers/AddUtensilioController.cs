@@ -24,6 +24,11 @@ namespace CookMate.Controllers {
         [HttpPost]
         public IActionResult Initial(UtensilioModel model) {
 
+            int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
+
+            if (model.utensilio == null) {
+
+            }
             var utensilio = _context.Utensilio.Where(u => u.nome == model.utensilio).FirstOrDefault();
 
             if (utensilio == null)
@@ -37,7 +42,29 @@ namespace CookMate.Controllers {
                 _context.SaveChanges();
             }
 
-            int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
+            var existe = false;
+            var lista = _context.Utensilio.Where(u => u.id == utensilio.id).SelectMany(r => r.UtensilioReceitas);
+            foreach (var ur in lista)
+            {
+                var r = _context.Receita.Find(ur.idReceita);
+                if (ur.idReceita != r.id) {
+                    existe = true;
+                    break;
+                }  
+            }
+            
+            if (existe == false)
+            {
+                var utensilioReceita = new UtensilioReceita
+                {
+                    idReceita = idReceita,
+                    idUtensilio = utensilio.id
+                };
+                _context.AddRange(utensilioReceita);
+                _context.SaveChanges();
+            }
+
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
             return View("~/Views/Home/intermedio.cshtml");
         }       
     }
