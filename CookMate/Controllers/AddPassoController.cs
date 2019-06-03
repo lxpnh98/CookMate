@@ -45,7 +45,6 @@ namespace CookMate.Controllers {
             }
 
             if (valid == true) {
-                Console.WriteLine("\n\n\n PASSEI AQUI 0.1\n\n\n");
                 var passo = new Passo {
                     tempo = model.time,
                     temporizador = false,
@@ -59,16 +58,13 @@ namespace CookMate.Controllers {
                 int idPasso = passo.id;
                 HttpContext.Session.SetInt32("idPasso", idPasso);
                 ViewData["idPasso"] = (int)HttpContext.Session.GetInt32("idPasso");
-                Console.WriteLine("\n\n\n PASSEI AQUI \n\n\n");
                 return View("~/Views/Home/addRecurso.cshtml");
             }
-            Console.WriteLine("\n\n\n PASSEI AQUI 3 \n\n\n");
             return View("~/Views/Home/addPasso.cshtml");
         }
     }
 
-    public class AddPassoModel
-    {
+    public class AddPassoModel {
 
         public int ordem { get; set; }
 
