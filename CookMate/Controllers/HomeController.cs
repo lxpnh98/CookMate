@@ -21,12 +21,8 @@ namespace CookMate.Controllers {
 
             int id = (int)HttpContext.Session.GetInt32("id");
             var lista = _context.Utilizador.Where(u => u.id == id).SelectMany(r => r.UtilizadorReceitas);
-            Console.WriteLine("\n\n\n{0}\n\n\n", lista);
-            foreach (var ur in lista)
-            {
-                Console.WriteLine("\n\n\n ola  asas\n\n\n");
+            foreach (var ur in lista) {
                 var r = _context.Receita.Find(ur.idReceita);
-                Console.WriteLine("\n\n\n{0}\n\n\n", r);
                 receitas.Add(r);
             }
             ViewData["id"] = (int)HttpContext.Session.GetInt32("id");

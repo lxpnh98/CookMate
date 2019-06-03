@@ -67,7 +67,6 @@ namespace CookMate.Controllers {
                 };
                 _context.Receita.Add(receita);
                 _context.SaveChanges();
-                Console.WriteLine("\n\n {0} \n\n", receita.idCategoria);
                 return View("~/Views/Home/addPasso.cshtml");
             }
             return View("~/Views/Home/addReceita.cshtml");
