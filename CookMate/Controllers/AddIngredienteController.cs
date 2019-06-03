@@ -24,6 +24,7 @@ namespace CookMate.Controllers {
         [HttpPost]
         public IActionResult Initial(IngredienteModel model) {
 
+            int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
             var ingrediente = _context.Ingrediente.Where(i => i.nome == model.ingrediente).FirstOrDefault();
 
             if (ingrediente == null)
@@ -39,8 +40,8 @@ namespace CookMate.Controllers {
                 _context.SaveChanges();
             }
 
-
-            int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
+            ViewData["username"] = HttpContext.Session.GetString("username");
             return View("~/Views/Home/intermedio.cshtml");
         }       
     }
