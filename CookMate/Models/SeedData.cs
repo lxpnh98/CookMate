@@ -180,13 +180,13 @@ namespace CookMate.Models
                     {
                         nome = "Manteiga",
                         valor = 250,
-                        unidade = "g"
+                        unidade = "grama"
                     },
                     new Ingrediente
                     {
                         nome = "Açúcar fino RAR",
                         valor = 200,
-                        unidade = "g"
+                        unidade = "grama"
                     },
                     new Ingrediente
                     {
