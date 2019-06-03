@@ -18,7 +18,7 @@ namespace CookMate.Controllers {
         public ReceitaController(UtilizadorContext context) {
             _context = context;
         }
-        
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Receita>> Get() {
@@ -40,7 +40,7 @@ namespace CookMate.Controllers {
                 var i = _context.Ingrediente.Find(ir.idIngrediente);
                 ingredientes.Add(i);
             }
-            
+
             var utensilios = new List<Utensilio>();
             var urs = _context.Receita.Where(r => r.id == id).SelectMany(r => r.UtensilioReceitas);
             foreach (var ur in urs) {

@@ -8,7 +8,7 @@ using CookMate.Models;
 namespace CookMate.Controllers {
 
     public class AdminChooseController : Controller {
- 
+
         private readonly UtilizadorContext _context;
 
         public AdminChooseController(UtilizadorContext context) {

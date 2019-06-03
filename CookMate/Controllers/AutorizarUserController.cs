@@ -8,32 +8,31 @@ using CookMate.Models;
 
 namespace CookMate.Controllers {
 
-    public class PromoverUserController : Controller {
+    public class AutorizarUserController : Controller {
 
         private readonly UtilizadorContext _context;
 
-        public PromoverUserController(UtilizadorContext context) {
+        public AutorizarUserController(UtilizadorContext context) {
             _context = context;
         }
 
         [HttpPost]
-        public IActionResult PromoverUser(PromoverModel model) {
+        public IActionResult AutorizarUser(AutorizarModel model) {
             var user = _context.Utilizador.Where(u => u.username == model.username).SingleOrDefault();
 
             if (user != null) {
                 user.podeAdicionarReceita = true;
-                user.admin = true;
                 _context.Utilizador.Update(user);
                 _context.SaveChanges();
                 return View("~/Views/Admin/menuAdmin.cshtml");
             } else {
                 ModelState.AddModelError("WrongUsername", "The username provided is incorrect.");
-                return View("~/Views/Admin/promoverUser.cshtml");
+                return View("~/Views/Admin/autorizarUser.cshtml");
             }
         }
     }
 
-    public class PromoverModel {
+    public class AutorizarModel {
         public string username { get; set; }
     }
 }

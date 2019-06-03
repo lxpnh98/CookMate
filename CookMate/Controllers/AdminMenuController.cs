@@ -23,7 +23,7 @@ namespace CookMate.Controllers {
         }
 
         public IActionResult AdminLogout() {
-            return View("~/Views/Shared/_Login.cshtml");
+            return View("~/Views/Login/Login.cshtml");
         }
 
     }

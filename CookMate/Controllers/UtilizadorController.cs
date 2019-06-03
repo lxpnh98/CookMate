@@ -19,7 +19,7 @@ namespace CookMate.Controllers {
         public UtilizadorController(UtilizadorContext context) {
             _context = context;
         }
-        
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Utilizador>> Get() {
@@ -47,7 +47,6 @@ namespace CookMate.Controllers {
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value) {
         }
-
 
         [HttpPost]
         public IActionResult Add([FromBody] Utilizador utilizador)

@@ -16,3 +16,11 @@ INSERT INTO CookMate..Utilizador (nome, email, username,  password, podeAdiciona
     VALUES('Ola 5'   , 'iamadmin@email.com' , 'admin1' , 'admin1' , 1, 'i am admin', , 1);
 
 SELECT * FROM CookMate..Utilizador;
+
+
+Use Cookmate;
+
+INSERT INTO CookMate..Receita (titulo, tempo, idCategoria)
+    VALUES('Receita1', '15:30' , 1);
+
+SELECT * FROM CookMate..Receita;
