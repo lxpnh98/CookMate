@@ -22,7 +22,24 @@ namespace CookMate.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Initial(AddReceitaModel model) {
+        public IActionResult Initial(IngredienteModel model) {
+
+            var ingrediente = _context.Ingrediente.Where(i => i.nome == model.ingrediente).FirstOrDefault();
+
+            if (ingrediente == null)
+            {
+                ingrediente = new Ingrediente
+                {
+                    id = 0,
+                    nome = model.ingrediente,
+                    valor = model.quantidade,
+                    unidade = model.unidade
+                };
+                _context.Ingrediente.Add(ingrediente);
+                _context.SaveChanges();
+            }
+
+
             int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
             return View("~/Views/Home/intermedio.cshtml");
         }       
@@ -32,7 +49,7 @@ namespace CookMate.Controllers {
 
         public string ingrediente { get; set; }
 
-        public string quantidade { get; set; }
+        public int quantidade { get; set; }
 
         public string unidade { get; set; }
     }

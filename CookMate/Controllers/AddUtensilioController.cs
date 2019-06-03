@@ -22,7 +22,21 @@ namespace CookMate.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Initial(AddReceitaModel model) {
+        public IActionResult Initial(UtensilioModel model) {
+
+            var utensilio = _context.Utensilio.Where(u => u.nome == model.utensilio).FirstOrDefault();
+
+            if (utensilio == null)
+            {
+                utensilio = new Utensilio
+                {
+                    id = 0,
+                    nome = model.utensilio
+                };
+                _context.Utensilio.Add(utensilio);
+                _context.SaveChanges();
+            }
+
             int idReceita = (int)HttpContext.Session.GetInt32("idReceita");
             return View("~/Views/Home/intermedio.cshtml");
         }       
